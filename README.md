@@ -169,7 +169,7 @@ lorem 20글자가 뙇!
 
 **자바스크립트의 모든 값은 데이터 타입을 갖는다. 자바스크립트는 7가지 데이터 타입을 제공한다.**
 
-- 원시 타입 (primitive data type)
+- 원시 타입 (primitive data type), 기본 타입
   - 원시 타입의 값은 [변경 불가능한 값(immutable value)](https://poiemaweb.com/js-immutability)이며 **[pass-by-value(값에 의한 전달)](https://poiemaweb.com/js-object#5-pass-by-value)** 이다.
   - `number`
   - `string`
@@ -184,6 +184,15 @@ lorem 20글자가 뙇!
 
 자바스크립트는 C나 Java외는 다르게 변수를 선언할 때 데이터 타입을 미리 지정하지 않는다. 다시 말해, 변수에 할당된 값의 타입에 의해 동적으로 변수의 타입이 결정된다. 이를 동적 타이핑이라 하며 자바스크립트가 다른 프로그래밍 언어와 구별되는 특징 중 하나이다.
 
+~~~
+var foo = 42;    // foo 는 이제 Number 임
+var foo = "bar"; // foo 는 이제 String 임
+var foo = true;  // foo 는 이제 Boolean 임
+~~~
+
+- 타입은 프로그램이 처리되는 과정에서 자동으로 파악됨
+- 같은 변수에 여러 타입의 값을 넣을 수 있음
+
 한줄 주석은 `//` 다음에 작성하며 여러 줄 주석은 `/*`과 `*/`의 사이에 작성한다. 
 
 다른 언어와 달리 자바스크립트에서는 블록 유효범위(Block-level scope)를 생성하지 않는다. 함수 단위의 유효범위(Function-level scope)만이 생성된다.
@@ -193,4 +202,66 @@ lorem 20글자가 뙇!
 오늘은 자바스트립트의 개념과 기본 문법에 대해 학습했다.
 
 다음 공부가 기대된다.
+
+
+
+## 200806
+
+## 1. Today I Learned
+
+자바스크립트 공부 시작!
+
+자바스크립트의 숫자 타입은 모든 수를 실수를 처리한다. 정수로 표시된다해도 사실은 실수다. 따라서 정수로 표시되는 수 끼리 나누더라도 실수가 나올 수 있다.
+
+추가적인 수 표현
+
+- `Infinity` : 양의 무한대
+- `-Infinity` : 음의 무한대
+- `NaN` : 산술 연산 불가(not-a-number)
+
+자바스크립트의 문자열은 원시 타입이며 변경 불가능(immutable)하다. 이것은 한 번 문자열이 생성되면, 그 문자열을 변경할 수 없다는 것을 의미한다
+
+새로운 문자열을 재할당하는 것은 가능함
+
+~~~javascript
+var str = 'string';
+// 문자열은 유사배열이다. 배열처럼 인덱스를 통해 접근가능
+for (var i = 0; i < str.length; i++) {
+  console.log(str[i]);
+}
+
+// 문자열을 변경할 수 없다.
+str[0] = 'S';
+console.log(str); // string
+~~~
+
+null
+
+~~~javascript
+var foo = null;
+console.log(typeof foo === null); // false
+console.log(foo === null);        // true
+~~~
+
+var 키워드로 선언된 변수의 문제점
+
+1. 함수 레벨 스코프(Function-level scope)
+   - 전역 변수의 남발
+   - for loop 초기화식에서 사용한 변수를 for loop 외부 또는 전역에서 참조할 수 있다.
+2. var 키워드 생략 허용
+   - 의도하지 않은 변수의 전역화
+3. 중복 선언 허용
+   - 의도하지 않은 변수값 변경
+4. 변수 호이스팅
+   - 변수를 선언하기 전에 참조가 가능하다.
+
+전역 변수는 유효 범위(scope)가 넓어서 어디에서 어떻게 사용될 지 파악하기 힘들다. 이는 의도치 않은 변수의 변경이 발생할 수 있는 가능성이 증가한다. 또한 여러 함수와 상호 의존하는 등 부수 효과(side effect)가 있을 수 있어서 복잡성이 증가한다.
+
+변수의 유효 범위(scope)는 좁을수록 좋다.
+
+ES6는 이러한 var의 단점을 보완하기 위해 [let과 const 키워드](https://poiemaweb.com/es6-block-scope)를 도입하였다.
+
+## 2. Today I Found Out
+
+자바스크립트 데이터타입과 변수에 대해 학습했다. 술술 읽어나갈 수는 있다. 그러나 그냥 읽어서는 남에게 설명해줄 수는 없을 것 같다. 어제배운 자바스크립트의 타입과 동적타이핑, var 키워드로 선언된 변수의 문제점를 외워야지!
 
