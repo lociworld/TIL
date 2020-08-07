@@ -265,3 +265,212 @@ ES6는 이러한 var의 단점을 보완하기 위해 [let과 const 키워드](h
 
 자바스크립트 데이터타입과 변수에 대해 학습했다. 술술 읽어나갈 수는 있다. 그러나 그냥 읽어서는 남에게 설명해줄 수는 없을 것 같다. 어제배운 자바스크립트의 타입과 동적타이핑, var 키워드로 선언된 변수의 문제점를 외워야지!
 
+# 200807
+
+## https://poiemaweb.com/ 공부 -7. 연산자 
+
+문은 리터럴, 연산자, 표현식, 키워드 등으로 구성되며 세미콜론( ; )으로 끝나야 한다. (코드 블록 { … }은 제외)
+
+~~~javascript
+var x = 5, result;
+
+// 선대입 후증가 (Postfix increment operator)
+result = x++;
+console.log(result, x); // 5 6
+
+// 선증가 후대입 (Prefix increment operator)
+result = ++x;
+console.log(result, x); // 7 7
+
+// 선대입 후감소 (Postfix decrement operator)
+result = x--;
+console.log(result, x); // 7 6
+
+// 선감소 후대입 (Prefix decrement operator)
+result = --x;
+console.log(result, x); // 5 5
+
+~~~
+
+`+` 연산자는 피연산자 중 하나 이상이 문자열인 경우 문자열 연결 연산자로 동작한다. 그 외의 경우는 덧셈 연산자로 동작한다. 
+
+~~~javascript
+// 문자열 연결 연산자
+'1' + '2'      // '12'
+'1' + 2       // '12'
+
+// 산술 연산자
+1 + 2          // 3
+1 + true       // 2 (true → 1)
+1 + false      // 1 (false → 0)
+true + false    // 1 (true → 1 / false → 0)
+1 + null       // 1 (null → 0)
+1 + undefined // NaN (undefined → NaN)
+~~~
+
+동등/ 일치 비교 연간자
+
+| 비교 연산자 | 의미        | 사례    | 설명                     |
+| :---------: | :---------- | :------ | :----------------------- |
+|     ==      | 동등 비교   | x == y  | x와 y의 값이 같음        |
+|     ===     | 일치 비교   | x === y | x와 y의 값과 타입이 같음 |
+|     !=      | 부등 비교   | x != y  | x와 y의 값이 다름        |
+|     !==     | 불일치 비교 | x !== y | x와 y의 값과 타입이 다름 |
+
+동등 비교 연산자는 편리한 경우도 있지만 수많은 부작용을 일으키므로 사용하지 않는 편이 좋다.
+
+```javascript
+NaN === NaN // false
+isNaN(NaN) // true
+
+```
+
+삼항연산자
+
+```
+조건식 ? 조건식이 ture일때 반환할 값 : 조건식이 false일때 반환할 값
+```
+
+논리연산자
+
+| 논리 연산자 |    의미     |
+| :---------: | :---------: |
+|    \|\|     | 논리합(OR)  |
+|     &&      | 논리곱(AND) |
+|      !      |  부정(NOT)  |
+
+~~~javascript
+// 논리합(||) 연산자
+true || true   // true
+true || false  // true
+false || true  // true
+false || false // false
+
+// 논리곱(&&) 연산자
+true && true   // true
+true && false  // false
+false && true  // false
+false && false // false
+
+// 논리 부정(!) 연산자
+!true  // false
+!false // true
+~~~
+
+쉼표연산자
+
+쉼표(,) 연산자는 왼쪽 피연산자부터 차례대로 피연산자를 평가하고 마지막 피연산자의 평가가 끝나면 마지막 피연산자의 평가 결과를 반환한다.
+
+~~~javascript
+var x, y, z;
+x = 1, y = 2, z = 3; // 3
+~~~
+
+type of 연산자
+
+~~~javascript
+typeof ''              // "string"
+typeof 1               // "number"
+typeof NaN             // "number"
+typeof true            // "boolean"
+typeof undefined       // "undefined"
+typeof Symbol()        // "symbol"
+typeof null            // "object"
+typeof []              // "object"
+typeof {}              // "object"
+typeof new Date()      // "object"
+typeof /test/gi        // "object"
+typeof function () {}  // "function"
+~~~
+
+주의해야 할 것은 typeof 연산자로 null 값을 연산해 보면 null이 아닌 “object”를 반환한다는 것이다. 이것은 자바스크립트의 첫 번째 버전에서 이렇게 설계된 것을 현재의 버전에 반영하지 못하고 있기 때문이다
+
+따라서 null 타입을 확인할 때는 typeof 연산자를 사용하지 말고 일치 연산자(===)를 사용하도록한다.
+
+~~~javascript
+typeof undeclared  // "undefined"
+~~~
+
+ 선언하지 않은 식별자를 typeof 연산자로 연산해 보면 ReferenceError가 발생하지 않고 “undefined”를 반환한다.
+
+## JavaScript30 day1
+
+Window와 document
+
+> https://www.zerocho.com/category/JavaScript/post/573b321aa54b5e8427432946
+
+윈도우
+
+- 윈도우는 브라우저 최상위 객체이다.  **브라우저**의 요소들과 자바스크립트 엔진, 그리고 모든 **변수**를 담고 있는 객체. 생략 가능
+
+document 
+
+- . document도 윈도우 객체의 속성이기 때문에 `window.document` 로 접근. 하지만 window는 생략 가능(전역 객체)하기 때문에 그냥 **document**로 접근
+
+~~~javascript
+document.getElementById(아이디)
+document.getElementsByClassName(클래스), document.getElementsByName(이름), document.getElementsByTagName(태그)
+document.querySelector(선택자), document.querySelectorAll(선택자)
+//css 선택자로 선택할 수 있게 해줍니다. 아이디는 #, 클래스는 .(점)
+//태그명[속성명=속성값] 같은 것도 할 수 있고, 부모 > 자식, 부모 자손 등등 css의 선택자는 거의 다 쓸 수 있습니다.
+//  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+
+var div = document.createElement('div'); // 메모리에 div가 생성됨
+~~~
+
+`**Document.getElementById()**` 메서드는 주어진 문자열과 일치하는 [`id`](https://developer.mozilla.org/ko/docs/Web/API/Element/id) 속성을 가진 요소를 찾고, 이를 나타내는 [`Element`](https://developer.mozilla.org/ko/docs/Web/API/Element) 객체를 반환합니다. ID는 문서 내에서 유일해야 하기 때문에 특정 요소를 빠르게 찾을 때 유용합니다.
+
+ID가 없는 요소에 접근하려면 [`Document.querySelector()`](https://developer.mozilla.org/ko/docs/Web/API/Document/querySelector)를 사용하세요. 모든 [선택자](https://developer.mozilla.org/en-US/docs/Glossary/CSS_selector)를 사용할 수 있습니다.
+
+~~~javascript
+function changeColor(newColor) {
+  var elem = document.getElementById('para');
+  elem.style.color = newColor;
+}
+~~~
+
+`**Array.from()**` 메서드는 유사 배열 객체(array-like object)나반복 가능한 객체(iterable object)를 얕게 복사해새로운`Array` 객체를 만듭니다.
+
+~~~javascript
+console.log(Array.from('foo'));
+// expected output: Array ["f", "o", "o"]
+
+console.log(Array.from([1, 2, 3], x => x + x));
+// expected output: Array [2, 4, 6]
+~~~
+
+addEventListener
+
+~~~javascript
+// Function to change the content of t2
+function modifyText() {
+  var t2 = document.getElementById("t2");
+  if (t2.firstChild.nodeValue == "three") {
+    t2.firstChild.nodeValue = "two";
+  } else {
+    t2.firstChild.nodeValue = "three";
+  }
+}
+
+// add event listener to table
+var el = document.getElementById("outside");
+el.addEventListener("click", modifyText, false);
+
+/*output: 
+one
+two*/
+~~~
+
+이 코드에서, `modifyText()` 는 `addEventListener()`를 사용하여 등록된 `click` 이벤트에 대한 리스너입니다. 테이블의 아무곳이나 클릭하더라도, 핸들러에서 버블링되고 `modifyText()` 가 실행됩니다. 
+
+addEventListener 를 사용하면 클릭(첫번째 인자) 후 modifyText()가 실행된다
+
+## Today I Found Out
+
+- 자바스크립트 연산자에 대해 학습했다
+- 윈도우 객체와 document 객체에 대해 학습했다
+- document에서 속성에 접근하는 여러가지 방법에 대해 학습했다
+- `**Array.from()**` 메서드
+- `addEventListener()` 에 대해 학습했다
+- 그동안 난 뭐를 공부했던 것일까....ㅎㅎㅎ 새롭게 알아가는 것들이 너무 많다. 
+
