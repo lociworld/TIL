@@ -474,3 +474,73 @@ addEventListener 를 사용하면 클릭(첫번째 인자) 후 modifyText()가 �
 - `addEventListener()` 에 대해 학습했다
 - 그동안 난 뭐를 공부했던 것일까....ㅎㅎㅎ 새롭게 알아가는 것들이 너무 많다. 
 
+# 200808
+
+## react todolist 
+
+- 구현하고 싶은 것 
+- 수정하기를 눌렀을 때는 수정하기 상태가 된다. 수정하기 상태가 되면 인풋 창의 버튼은 할일 '추가' 버튼이 아닌 '수정' 버튼으로 바뀐다.
+- 수정하기 상태에서 인풋 창에 값을 입력하고 '수정'버튼을 누르면 할일이 추가되고, '수정'버튼은 다시 '추가' 버튼으로 바뀐다.
+
+-  오류
+
+- 수정버튼을 누르면 edit 상태를 true로 바꾸려고 하는데 잘 안된다. setEdit is not a function 이라는 오류 메세지가 뜬다
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_a_function
+- 해결중
+
+~~~javascript
+/* eslint-disable jsx-a11y/accessible-emoji */
+import React, { useCallback } from 'react';
+import styled from 'styled-components';
+import emptyViewImage from '../assets/images/im-empty-view.png';
+import {ToDoSubmitButton} from './ToDoForm.jsx'
+
+const ToDoListView = ({todolist, updateTodolist, deleteTodolist, toggleDoneTodolist, edit, setEdit}) => {
+
+    const handleToggleDoneTodolist = useCallback((id) => () => {
+        toggleDoneTodolist(id)
+    }, [toggleDoneTodolist])
+
+    const handleDeleteTodolist = useCallback((id) => () => {
+        deleteTodolist(id);
+    }, [deleteTodolist]);
+    
+    const handleUpdateTodolist = useCallback((edit) => () => {
+      setEdit(true);
+  }, [setEdit]);
+
+    if (todolist.length === 0) {
+        return <EmptyViewImage src={emptyViewImage} alt="리스트가 비었어요! 등록해주세요!" />
+    }
+
+    return (
+        <ListContainer>
+          {todolist.map(item => {
+            if (item.isDelete) {
+                return null;
+            }
+            return  (
+                <ListItemStyle key={item.id}>
+                    <ListContentGroup>
+                        <ListItemIcon>📝</ListItemIcon>
+                        <ListItemText isDone={item.isDone}>{item.text}</ListItemText>
+                    </ListContentGroup>
+                    <ListButtonGroup>
+                        <ListDoneButton onClick={handleToggleDoneTodolist(item.id)}>완료</ListDoneButton> 
+                        <ListUpdateButton onClick={handleUpdateTodolist(item.id)}>수정</ListUpdateButton>
+                        <ListDeleteButton onClick={handleDeleteTodolist(item.id)}>삭제</ListDeleteButton>
+                    </ListButtonGroup>
+                </ListItemStyle>
+            )
+          }
+         )} 
+        </ListContainer>
+    )
+}
+
+export default ToDoListView;
+~~~
+
+
+
