@@ -207,7 +207,7 @@ var foo = true;  // foo 는 이제 Boolean 임
 
 ## 200806
 
-## 1. Today I Learned
+### 1. Today I Learned
 
 자바스크립트 공부 시작!
 
@@ -261,13 +261,13 @@ var 키워드로 선언된 변수의 문제점
 
 ES6는 이러한 var의 단점을 보완하기 위해 [let과 const 키워드](https://poiemaweb.com/es6-block-scope)를 도입하였다.
 
-## 2. Today I Found Out
+### 2. Today I Found Out
 
 자바스크립트 데이터타입과 변수에 대해 학습했다. 술술 읽어나갈 수는 있다. 그러나 그냥 읽어서는 남에게 설명해줄 수는 없을 것 같다. 어제배운 자바스크립트의 타입과 동적타이핑, var 키워드로 선언된 변수의 문제점를 외워야지!
 
-# 200807
+## 200807
 
-## https://poiemaweb.com/ 공부 -7. 연산자 
+###  https://poiemaweb.com/ 공부 -7. 연산자 
 
 문은 리터럴, 연산자, 표현식, 키워드 등으로 구성되며 세미콜론( ; )으로 끝나야 한다. (코드 블록 { … }은 제외)
 
@@ -465,7 +465,7 @@ two*/
 
 addEventListener 를 사용하면 클릭(첫번째 인자) 후 modifyText()가 실행된다
 
-## Today I Found Out
+### Today I Found Out
 
 - 자바스크립트 연산자에 대해 학습했다
 - 윈도우 객체와 document 객체에 대해 학습했다
@@ -474,9 +474,9 @@ addEventListener 를 사용하면 클릭(첫번째 인자) 후 modifyText()가 �
 - `addEventListener()` 에 대해 학습했다
 - 그동안 난 뭐를 공부했던 것일까....ㅎㅎㅎ 새롭게 알아가는 것들이 너무 많다. 
 
-# 200808
+## 200808
 
-## react todolist 
+### react todolist 
 
 - 구현하고 싶은 것 
 - 수정하기를 눌렀을 때는 수정하기 상태가 된다. 수정하기 상태가 되면 인풋 창의 버튼은 할일 '추가' 버튼이 아닌 '수정' 버튼으로 바뀐다.
@@ -544,3 +544,53 @@ export default ToDoListView;
 
 
 
+## 200809 
+
+### react todolist 
+
+- 수정 버튼 구현
+- 어제까지는 수정 상태 일 때, 인풋 창의 추가 버튼을 수정으로 바꿨었는데 오늘은 인풋창의 추가버튼을 그대로 두고, 수정 상태 일 때, 투두 리스트 목록에서 수정하고자 하는 투두 아이템이 텍스트에서 인풋창으로 바뀌도록 했다. 
+- 이를 위해 ToDoListView.jsx 에서 if문을 이용해 에딧 상태 일 때는 인풋 컴포넌트를 사용했고, 버튼은 수정 취소, 수정, 삭제 버튼을 보이게 했다. 에딧 상태가 아닐 때에는 텍스트 컴포넌트를 사용했고, 버튼은 완료, 수정, 삭제버튼을 보이게 했다 . 
+- 인풋 컴포넌트는 투두폼과 투두리스트뷰 에서 쓰고, onChange 이벤트를 만들어주었다. 처음에는 투두폼에서 만든 onChange를 그대로 이용했는데 그 결과, 투두리스트뷰의 인풋창에 값을 입력하는 대로 투두폼의 인풋창에도 같은 값이 나오는 바람에 투두리스트뷰의 onChange 를 다른 이름으로 따로 만들었다. 
+-  const updateTodolist 는 사실 isEdit 상태만 true로 바꿔주고 싶었는데 왜 인지 그렇게는 안되었다. 
+~~~javascript
+const updateTodolist =  useCallback((id, text) => {
+  
+   // const findIndex = [...todolist].findIndex((item) => item.id === id);
+   const findTarget = [...todolist].find(item => item.id ===id);
+
+   if (findTarget) {
+     findTarget.isEdit = true;
+     
+   }
+      
+   // const list = [...todolist].filter((item) => item.id !== id);
+   // list.splice(findIndex, 0, findTarget);
+   // setTodolist(list);
+ }, [todolist]);
+ ~~~
+ - 이렇게 하면 투두리스트 아이템의 수정 버튼을 눌러도 먹통이다. 인풋창으로 바뀌어야하는데 바뀌지 않는다. 따로 에러메세지가 뜨진 않는다.
+ ~~~
+  const updateTodolist =  useCallback((id, text) => {
+   
+    const findIndex = [...todolist].findIndex((item) => item.id === id);
+    const findTarget = [...todolist].find(item => item.id ===id);
+
+    if (findTarget) {
+      findTarget.isEdit = true;
+      
+    }
+       
+    const list = [...todolist].filter((item) => item.id !== id);
+    list.splice(findIndex, 0, findTarget);
+    setTodolist(list);
+  }, [todolist]);
+  ~~~
+  - 이렇게 하면 수정버튼을 클릭했을 때 투두리스트 아이템의 텍스트가 인풋창으로 잘 변한다
+  - 수정 상태에서 투두리스트 아이템 인풋창에 값을 입력하고, 수정버튼을 누르면 handleUpdateSubmitTodolist 이벤트가 발생하고, id 와 인풋내용이 인자로 전달된다. 인풋내용을 보내주지 않아서 findTarget.text 를 updatedText로 갱신해줄 수 없었는데 인풋내용을 인자로 전달하면서 해결했다.
+  
+  ### Today I Found Out
+  - 대부분의 문제는 프롭스를 잘 내려주고, 받는 것의 문제였다. 
+  - 그동안은 머리로만 생각하고, 코드를 짜려니 뒤죽박죽 어려웠는데 노트에 해야할 것들을 정리하고, 하나씩 해결해나가니까 그나마 할만 했다. 다음부터는 노트를 이용해야겠다.
+  - edit 의 스테이트관리가 어려웠다. 다음 번엔 isEdit을 사용하지 않고, setEdit만으로 구현 가능 한지 알아봐야겠다. 
+  - 추가, 삭제 함수를 계속 보면서 거의 베끼기 수준으로 수정 버튼을 구현하는데에도 꽤 오랜 시간이 걸렸다. 그래도 해냈으니 뿌듯하긴하다. 리스트를 추가했다가 모두 삭제했을 때 todolist의 길이가 0일 때 이미지를 띄우려고 했는데 그 부분이 잘 안된다. 다음에는 이 부분을 수정해봐야겠다. 앞으로도 리액트의 끈을 계속 잡고 있어야지..!^^
