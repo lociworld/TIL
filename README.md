@@ -568,7 +568,7 @@ const updateTodolist =  useCallback((id, text) => {
    // list.splice(findIndex, 0, findTarget);
    // setTodolist(list);
  }, [todolist]);
- ~~~
+~~~
  - 이렇게 하면 투두리스트 아이템의 수정 버튼을 눌러도 먹통이다. 인풋창으로 바뀌어야하는데 바뀌지 않는다. 따로 에러메세지가 뜨진 않는다.
  ~~~
   const updateTodolist =  useCallback((id, text) => {
@@ -585,12 +585,21 @@ const updateTodolist =  useCallback((id, text) => {
     list.splice(findIndex, 0, findTarget);
     setTodolist(list);
   }, [todolist]);
-  ~~~
+ ~~~
   - 이렇게 하면 수정버튼을 클릭했을 때 투두리스트 아이템의 텍스트가 인풋창으로 잘 변한다
   - 수정 상태에서 투두리스트 아이템 인풋창에 값을 입력하고, 수정버튼을 누르면 handleUpdateSubmitTodolist 이벤트가 발생하고, id 와 인풋내용이 인자로 전달된다. 인풋내용을 보내주지 않아서 findTarget.text 를 updatedText로 갱신해줄 수 없었는데 인풋내용을 인자로 전달하면서 해결했다.
-  
+
   ### Today I Found Out
   - 대부분의 문제는 프롭스를 잘 내려주고, 받는 것의 문제였다. 
   - 그동안은 머리로만 생각하고, 코드를 짜려니 뒤죽박죽 어려웠는데 노트에 해야할 것들을 정리하고, 하나씩 해결해나가니까 그나마 할만 했다. 다음부터는 노트를 이용해야겠다.
   - edit 의 스테이트관리가 어려웠다. 다음 번엔 isEdit을 사용하지 않고, setEdit만으로 구현 가능 한지 알아봐야겠다. 
   - 추가, 삭제 함수를 계속 보면서 거의 베끼기 수준으로 수정 버튼을 구현하는데에도 꽤 오랜 시간이 걸렸다. 그래도 해냈으니 뿌듯하긴하다. 리스트를 추가했다가 모두 삭제했을 때 todolist의 길이가 0일 때 이미지를 띄우려고 했는데 그 부분이 잘 안된다. 다음에는 이 부분을 수정해봐야겠다. 앞으로도 리액트의 끈을 계속 잡고 있어야지..!^^
+
+## 200810
+
+### react todolist 
+- 변수명을 지을 떄는 좀 더 시맨틱하게! 변수명을 좀 더 의미가 있도록 바꿔주었다
+- 시맨틱: 시맨틱 요소 = 의미있는 요소를 뜻하며, 이 시맨틱 요소는 브라우저와 개발자 모두에게 요소의 의미나 목적을 명확하게 설명해 줄 수 있는 요소이다.
+- 푸쉬할 때는 console.log 를 지우자
+- 스프레드 문법에 대해 공부하는 중..
+
