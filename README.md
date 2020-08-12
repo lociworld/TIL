@@ -657,3 +657,62 @@ React는 기본적으로 실제로 변경된 부분만을 가려내어 DOM을 �
   - 일단 오늘은 react에서 setState를 할 떄, 스프레드 문법을 사용해 State 관리를 할 수 있다는 것 정도는 기억해야겠다.
   - 리액트의 성능적인 측면에 관한 블로그 글을 읽었다. 리액트는 변경된 부분만 가려내 DOM을 조작하도록 하는 최적화된 렌더링 엔진을 가지고 있다고 한다. 최적화 포인트가 어디가 될 지 잘 감이 오지 않는다. 이 부분에 대해 더 공부해보고 싶다. 
 
+## 200812
+
+![image-20200812124724219](../../multicampus/AppData/Roaming/Typora/typora-user-images/image-20200812124724219.png)
+
+- 내가 쓴 댓글을 삭제하려고 한다. 405 에러가 뜬다.
+
+- delete 요청 주소를 잘못보내서 그랬다. `getUserCommentedPosts`를 `comments` 로 바꿔주니까 된다. 
+
+```
+  deleteComment(data) {
+      if (confirm("정말로 작성하신 댓글을 삭제하실 건가요?")) {
+        console.log(data, "deletedata");
+        axios.delete(process.env.VUE_APP_API_URL + "comments", {
+          params: {
+            commentsid: data,
+          },
+        });
+      }
+    },
+```
+
+- 추천 목록 받아오기
+
+~~~vue
+<template>   
+    <div class="recent">
+          이 포스트는 어떠세요? - 현재 보고 계시는 포스트와 관련이 많은 포스트 입니다
+          <hr />
+          <div
+            v-for="view in recommendViews"
+            :key="view.postid"
+          >{{ view.title}} {{ view.createdat.split("T")[0] }}</div>
+        </div>
+</template>   
+ <script>
+ data: () => {
+         return {
+             recommendViews: [],
+         };
+     },
+     created() {
+       this.getRecommendView();
+     },
+      
+      getRecommendView() {
+          // console.log(this.$route.params.id, "paramsid");
+          axios
+              .post(process.env.VUE_APP_API_URL + "getPopluarpostrelated", {
+              postid: this.$route.params.id,
+          })
+              .then(({ data }) => {
+              // console.log(data.object[0].posts, "getrecommenddata!!!!");
+              this.recommendViews = data.object[0].posts;
+          });
+    },
+</script> 
+
+~~~
+
