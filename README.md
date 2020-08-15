@@ -1,6 +1,6 @@
 # Today I Learned
 
-> ​	매일 배운 내용을 정리합니다.
+> ​ 매일 배운 내용을 정리합니다.
 
 ## 200622
 
@@ -31,7 +31,7 @@
   border-radius: 10px;
 }
 .hello h1{
-  font-size: 50px; 
+  font-size: 50px;
   line-height: 1.2;
 }
 ```
@@ -53,13 +53,13 @@
 ```
 
 - 플렉스, flex:1;
-- flex:1;은  `flex-grow: 1;` 과 같다., 자동으로 플렉스 아이템들의 너비가 플렉스 컨테이너의 너비를 기준으로 알맞게 같은너비를 가지고 확장된다.
+- flex:1;은 `flex-grow: 1;` 과 같다., 자동으로 플렉스 아이템들의 너비가 플렉스 컨테이너의 너비를 기준으로 알맞게 같은너비를 가지고 확장된다.
 
 - html 꿀팁
 
 ```
 div#section-a 하고 탭키를 누르면
-<div id="section-c"></div>이 뙇! 
+<div id="section-c"></div>이 뙇!
 .box1 하고 탭키를 누르면
 <div class="box1"></div>이 뙇!
 lorem20 탭키 누르면
@@ -76,15 +76,15 @@ lorem 20글자가 뙇!
 
 - 오류 메시지 나오면 당황하지 말고 git lab에서 커밋내역이랑 local에서 git log 비교해보자
 
-- 해결방법은 git pull origin master하고 , 병합해서 푸쉬하면 된다 
+- 해결방법은 git pull origin master하고 , 병합해서 푸쉬하면 된다
 
 - 충돌 상황을 고쳤다면 git add . , git commit 하면 자동으로 커밋메시지가 저장되어 있음을 확인할 수 있다
 
-- |MERGING 플래깅이 없어졌다면 해결된 것이고, 이 상태에서  git push origin master하면 잘 올라간다
+- |MERGING 플래깅이 없어졌다면 해결된 것이고, 이 상태에서 git push origin master하면 잘 올라간다
 
 - 충돌 상황 시나리오에 대해 생각해 보면 크게 세 가지 이다.
 
-- 상황1: fast-foward:   feature 브랜치 생성된 이후 master 브랜치에 변경 사항이 없는 상황, 즉 혼자 쌓아나갈 때
+- 상황1: fast-foward: feature 브랜치 생성된 이후 master 브랜치에 변경 사항이 없는 상황, 즉 혼자 쌓아나갈 때
 
 - 상황2: 서로 다른 이력(commit)을 병합(merge)하는 과정에서 **다른 파일이 수정**되어 있는 상황 => git이 auto merging을 진행하고, **commit이 발생된다.**
 
@@ -97,13 +97,13 @@ lorem 20글자가 뙇!
   - 원하는 형태의 코드로 직접 수정을 하고 직접 commit을 발생 시켜야 한다.
 
 - 같은 파일을 수정했을 경우에는 이력을 바로 합칠 수 없음
-- 이 때는 우리가 선택하면 됨. 파일을 열어보면 head 플래그(지금 내가 작업한 곳)랑,  incoming Change 플래그 삭제해주고 내가 남기고 싶은 부분만 남기면 됨. 파일을 수정 하고 깃에드 깃커밋 깃푸쉬 ㄱㄱ
+- 이 때는 우리가 선택하면 됨. 파일을 열어보면 head 플래그(지금 내가 작업한 곳)랑, incoming Change 플래그 삭제해주고 내가 남기고 싶은 부분만 남기면 됨. 파일을 수정 하고 깃에드 깃커밋 깃푸쉬 ㄱㄱ
 
 ## 200709
 
-- 깃에 대해 더 공부했다. 
+- 깃에 대해 더 공부했다.
 
-- 깃헙에서는 pull request, 깃랩에서는 merge request라는 표현을 쓴다 
+- 깃헙에서는 pull request, 깃랩에서는 merge request라는 표현을 쓴다
 
 - pull request의 의미
 
@@ -122,15 +122,15 @@ lorem 20글자가 뙇!
 
   > [https://git-scm.com/book/ko/v2/GitHub-GitHub-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90-%EA%B8%B0%EC%97%AC%ED%95%98%EA%B8%B0](https://git-scm.com/book/ko/v2/GitHub-GitHub-프로젝트에-기여하기)
 
-- 깃포크: 내가 권한이 없는 곳에서 고치고 싶을 때 포크를 이용한다. 
+- 깃포크: 내가 권한이 없는 곳에서 고치고 싶을 때 포크를 이용한다.
 
   - 참여하고 싶은 프로젝트가 생기면 아마 그 프로젝트에 Push 할 권한은 없을 테니까 “Fork” 해야 한다. “Fork” 하면 GitHub이 프로젝트를 통째로 복사해준다. 그 복사본은 사용자 네임스페이스에 있고 Push 할 수도 있다.
-  - 내가 권한이 없는 곳에서 고치고 싶을 때 포크를 이용한다. 
+  - 내가 권한이 없는 곳에서 고치고 싶을 때 포크를 이용한다.
   - 포크를 이용하면 url이 내 아이디로 바뀌고, 내 저장소로 포크한 것이 가져와진다.
   - 수정을하고, 에드 커밋한다(로컬에서 깃 클론해서 수정해도 됨)
   - git push origin master한다
   - 이제 내 프로젝트에는 반영이 됐고, 포크한 원래 프로젝트에는 반영이 안된상태이다.
-  - pull requests 클릭 > New pull request  클릭 > Create pull reuquest 클릭하면 원래 포크주인에게 pull request가 보내진다
+  - pull requests 클릭 > New pull request 클릭 > Create pull reuquest 클릭하면 원래 포크주인에게 pull request가 보내진다
 
 - 더 알아보면 좋은 것: rebase
 
@@ -138,17 +138,17 @@ lorem 20글자가 뙇!
 
 ## 200730
 
- 파비콘
+파비콘
 
 - vue.js 에서 파비콘과 타이틀을 수정했다
-- 파비콘 파일을 public/favicon.io 이다 
+- 파비콘 파일을 public/favicon.io 이다
 - io 파일이 더 좋은 지 png가 더 좋은 지에 대해 정리한 글이 있었는데 아직 이해가 힘들다
 - 파비콘을 등록하는 것은 쉬워보였지만 경로설정을 잘못하는 바람에 한 참을 헤맸다
 - 자세한 내용은 블로그에 적겠다
 
 ## 200805
 
-자바스크립트 공부 시작! 
+자바스크립트 공부 시작!
 
 > https://poiemaweb.com/
 
@@ -184,26 +184,24 @@ lorem 20글자가 뙇!
 
 자바스크립트는 C나 Java외는 다르게 변수를 선언할 때 데이터 타입을 미리 지정하지 않는다. 다시 말해, 변수에 할당된 값의 타입에 의해 동적으로 변수의 타입이 결정된다. 이를 동적 타이핑이라 하며 자바스크립트가 다른 프로그래밍 언어와 구별되는 특징 중 하나이다.
 
-~~~
+```
 var foo = 42;    // foo 는 이제 Number 임
 var foo = "bar"; // foo 는 이제 String 임
 var foo = true;  // foo 는 이제 Boolean 임
-~~~
+```
 
 - 타입은 프로그램이 처리되는 과정에서 자동으로 파악됨
 - 같은 변수에 여러 타입의 값을 넣을 수 있음
 
-한줄 주석은 `//` 다음에 작성하며 여러 줄 주석은 `/*`과 `*/`의 사이에 작성한다. 
+한줄 주석은 `//` 다음에 작성하며 여러 줄 주석은 `/*`과 `*/`의 사이에 작성한다.
 
 다른 언어와 달리 자바스크립트에서는 블록 유효범위(Block-level scope)를 생성하지 않는다. 함수 단위의 유효범위(Function-level scope)만이 생성된다.
 
- 원시 타입(Primitives)을 제외한 나머지 값들(함수, 배열, 정규표현식 등)은 모두 객체이다.
+원시 타입(Primitives)을 제외한 나머지 값들(함수, 배열, 정규표현식 등)은 모두 객체이다.
 
 오늘은 자바스트립트의 개념과 기본 문법에 대해 학습했다.
 
 다음 공부가 기대된다.
-
-
 
 ## 200806
 
@@ -223,25 +221,25 @@ var foo = true;  // foo 는 이제 Boolean 임
 
 새로운 문자열을 재할당하는 것은 가능함
 
-~~~javascript
-var str = 'string';
+```javascript
+var str = "string";
 // 문자열은 유사배열이다. 배열처럼 인덱스를 통해 접근가능
 for (var i = 0; i < str.length; i++) {
   console.log(str[i]);
 }
 
 // 문자열을 변경할 수 없다.
-str[0] = 'S';
+str[0] = "S";
 console.log(str); // string
-~~~
+```
 
 null
 
-~~~javascript
+```javascript
 var foo = null;
 console.log(typeof foo === null); // false
-console.log(foo === null);        // true
-~~~
+console.log(foo === null); // true
+```
 
 var 키워드로 선언된 변수의 문제점
 
@@ -267,12 +265,13 @@ ES6는 이러한 var의 단점을 보완하기 위해 [let과 const 키워드](h
 
 ## 200807
 
-###  https://poiemaweb.com/ 공부 -7. 연산자 
+### https://poiemaweb.com/ 공부 -7. 연산자
 
 문은 리터럴, 연산자, 표현식, 키워드 등으로 구성되며 세미콜론( ; )으로 끝나야 한다. (코드 블록 { … }은 제외)
 
-~~~javascript
-var x = 5, result;
+```javascript
+var x = 5,
+  result;
 
 // 선대입 후증가 (Postfix increment operator)
 result = x++;
@@ -289,24 +288,23 @@ console.log(result, x); // 7 6
 // 선감소 후대입 (Prefix decrement operator)
 result = --x;
 console.log(result, x); // 5 5
+```
 
-~~~
+`+` 연산자는 피연산자 중 하나 이상이 문자열인 경우 문자열 연결 연산자로 동작한다. 그 외의 경우는 덧셈 연산자로 동작한다.
 
-`+` 연산자는 피연산자 중 하나 이상이 문자열인 경우 문자열 연결 연산자로 동작한다. 그 외의 경우는 덧셈 연산자로 동작한다. 
-
-~~~javascript
+```javascript
 // 문자열 연결 연산자
-'1' + '2'      // '12'
-'1' + 2       // '12'
+"1" + "2"; // '12'
+"1" + 2; // '12'
 
 // 산술 연산자
-1 + 2          // 3
-1 + true       // 2 (true → 1)
-1 + false      // 1 (false → 0)
-true + false    // 1 (true → 1 / false → 0)
-1 + null       // 1 (null → 0)
-1 + undefined // NaN (undefined → NaN)
-~~~
+1 + 2; // 3
+1 + true; // 2 (true → 1)
+1 + false; // 1 (false → 0)
+true + false; // 1 (true → 1 / false → 0)
+1 + null; // 1 (null → 0)
+1 + undefined; // NaN (undefined → NaN)
+```
 
 동등/ 일치 비교 연간자
 
@@ -320,9 +318,8 @@ true + false    // 1 (true → 1 / false → 0)
 동등 비교 연산자는 편리한 경우도 있지만 수많은 부작용을 일으키므로 사용하지 않는 편이 좋다.
 
 ```javascript
-NaN === NaN // false
-isNaN(NaN) // true
-
+NaN === NaN; // false
+isNaN(NaN); // true
 ```
 
 삼항연산자
@@ -339,59 +336,59 @@ isNaN(NaN) // true
 |     &&      | 논리곱(AND) |
 |      !      |  부정(NOT)  |
 
-~~~javascript
+```javascript
 // 논리합(||) 연산자
-true || true   // true
-true || false  // true
-false || true  // true
-false || false // false
+true || true; // true
+true || false; // true
+false || true; // true
+false || false; // false
 
 // 논리곱(&&) 연산자
-true && true   // true
-true && false  // false
-false && true  // false
-false && false // false
+true && true; // true
+true && false; // false
+false && true; // false
+false && false; // false
 
 // 논리 부정(!) 연산자
-!true  // false
-!false // true
-~~~
+!true; // false
+!false; // true
+```
 
 쉼표연산자
 
 쉼표(,) 연산자는 왼쪽 피연산자부터 차례대로 피연산자를 평가하고 마지막 피연산자의 평가가 끝나면 마지막 피연산자의 평가 결과를 반환한다.
 
-~~~javascript
+```javascript
 var x, y, z;
-x = 1, y = 2, z = 3; // 3
-~~~
+(x = 1), (y = 2), (z = 3); // 3
+```
 
 type of 연산자
 
-~~~javascript
-typeof ''              // "string"
-typeof 1               // "number"
-typeof NaN             // "number"
-typeof true            // "boolean"
-typeof undefined       // "undefined"
-typeof Symbol()        // "symbol"
-typeof null            // "object"
-typeof []              // "object"
-typeof {}              // "object"
-typeof new Date()      // "object"
-typeof /test/gi        // "object"
-typeof function () {}  // "function"
-~~~
+```javascript
+typeof ""; // "string"
+typeof 1; // "number"
+typeof NaN; // "number"
+typeof true; // "boolean"
+typeof undefined; // "undefined"
+typeof Symbol(); // "symbol"
+typeof null; // "object"
+typeof []; // "object"
+typeof {}; // "object"
+typeof new Date(); // "object"
+typeof /test/gi; // "object"
+typeof function () {}; // "function"
+```
 
 주의해야 할 것은 typeof 연산자로 null 값을 연산해 보면 null이 아닌 “object”를 반환한다는 것이다. 이것은 자바스크립트의 첫 번째 버전에서 이렇게 설계된 것을 현재의 버전에 반영하지 못하고 있기 때문이다
 
 따라서 null 타입을 확인할 때는 typeof 연산자를 사용하지 말고 일치 연산자(===)를 사용하도록한다.
 
-~~~javascript
-typeof undeclared  // "undefined"
-~~~
+```javascript
+typeof undeclared; // "undefined"
+```
 
- 선언하지 않은 식별자를 typeof 연산자로 연산해 보면 ReferenceError가 발생하지 않고 “undefined”를 반환한다.
+선언하지 않은 식별자를 typeof 연산자로 연산해 보면 ReferenceError가 발생하지 않고 “undefined”를 반환한다.
 
 ## JavaScript30 day1
 
@@ -401,47 +398,49 @@ Window와 document
 
 윈도우
 
-- 윈도우는 브라우저 최상위 객체이다.  **브라우저**의 요소들과 자바스크립트 엔진, 그리고 모든 **변수**를 담고 있는 객체. 생략 가능
+- 윈도우는 브라우저 최상위 객체이다. **브라우저**의 요소들과 자바스크립트 엔진, 그리고 모든 **변수**를 담고 있는 객체. 생략 가능
 
-document 
+document
 
 - . document도 윈도우 객체의 속성이기 때문에 `window.document` 로 접근. 하지만 window는 생략 가능(전역 객체)하기 때문에 그냥 **document**로 접근
 
-~~~javascript
-document.getElementById(아이디)
-document.getElementsByClassName(클래스), document.getElementsByName(이름), document.getElementsByTagName(태그)
-document.querySelector(선택자), document.querySelectorAll(선택자)
+```javascript
+document.getElementById(아이디);
+document.getElementsByClassName(클래스),
+  document.getElementsByName(이름),
+  document.getElementsByTagName(태그);
+document.querySelector(선택자), document.querySelectorAll(선택자);
 //css 선택자로 선택할 수 있게 해줍니다. 아이디는 #, 클래스는 .(점)
 //태그명[속성명=속성값] 같은 것도 할 수 있고, 부모 > 자식, 부모 자손 등등 css의 선택자는 거의 다 쓸 수 있습니다.
 //  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 
-var div = document.createElement('div'); // 메모리에 div가 생성됨
-~~~
+var div = document.createElement("div"); // 메모리에 div가 생성됨
+```
 
 `**Document.getElementById()**` 메서드는 주어진 문자열과 일치하는 [`id`](https://developer.mozilla.org/ko/docs/Web/API/Element/id) 속성을 가진 요소를 찾고, 이를 나타내는 [`Element`](https://developer.mozilla.org/ko/docs/Web/API/Element) 객체를 반환합니다. ID는 문서 내에서 유일해야 하기 때문에 특정 요소를 빠르게 찾을 때 유용합니다.
 
 ID가 없는 요소에 접근하려면 [`Document.querySelector()`](https://developer.mozilla.org/ko/docs/Web/API/Document/querySelector)를 사용하세요. 모든 [선택자](https://developer.mozilla.org/en-US/docs/Glossary/CSS_selector)를 사용할 수 있습니다.
 
-~~~javascript
+```javascript
 function changeColor(newColor) {
-  var elem = document.getElementById('para');
+  var elem = document.getElementById("para");
   elem.style.color = newColor;
 }
-~~~
+```
 
 `**Array.from()**` 메서드는 유사 배열 객체(array-like object)나반복 가능한 객체(iterable object)를 얕게 복사해새로운`Array` 객체를 만듭니다.
 
-~~~javascript
-console.log(Array.from('foo'));
+```javascript
+console.log(Array.from("foo"));
 // expected output: Array ["f", "o", "o"]
 
-console.log(Array.from([1, 2, 3], x => x + x));
+console.log(Array.from([1, 2, 3], (x) => x + x));
 // expected output: Array [2, 4, 6]
-~~~
+```
 
 addEventListener
 
-~~~javascript
+```javascript
 // Function to change the content of t2
 function modifyText() {
   var t2 = document.getElementById("t2");
@@ -459,9 +458,9 @@ el.addEventListener("click", modifyText, false);
 /*output: 
 one
 two*/
-~~~
+```
 
-이 코드에서, `modifyText()` 는 `addEventListener()`를 사용하여 등록된 `click` 이벤트에 대한 리스너입니다. 테이블의 아무곳이나 클릭하더라도, 핸들러에서 버블링되고 `modifyText()` 가 실행됩니다. 
+이 코드에서, `modifyText()` 는 `addEventListener()`를 사용하여 등록된 `click` 이벤트에 대한 리스너입니다. 테이블의 아무곳이나 클릭하더라도, 핸들러에서 버블링되고 `modifyText()` 가 실행됩니다.
 
 addEventListener 를 사용하면 클릭(첫번째 인자) 후 modifyText()가 실행된다
 
@@ -472,153 +471,184 @@ addEventListener 를 사용하면 클릭(첫번째 인자) 후 modifyText()가 �
 - document에서 속성에 접근하는 여러가지 방법에 대해 학습했다
 - `**Array.from()**` 메서드
 - `addEventListener()` 에 대해 학습했다
-- 그동안 난 뭐를 공부했던 것일까....ㅎㅎㅎ 새롭게 알아가는 것들이 너무 많다. 
+- 그동안 난 뭐를 공부했던 것일까....ㅎㅎㅎ 새롭게 알아가는 것들이 너무 많다.
 
 ## 200808
 
-### react todolist 
+### react todolist
 
-- 구현하고 싶은 것 
+- 구현하고 싶은 것
 - 수정하기를 눌렀을 때는 수정하기 상태가 된다. 수정하기 상태가 되면 인풋 창의 버튼은 할일 '추가' 버튼이 아닌 '수정' 버튼으로 바뀐다.
 - 수정하기 상태에서 인풋 창에 값을 입력하고 '수정'버튼을 누르면 할일이 추가되고, '수정'버튼은 다시 '추가' 버튼으로 바뀐다.
 
--  오류
+- 오류
 
 - 수정버튼을 누르면 edit 상태를 true로 바꾸려고 하는데 잘 안된다. setEdit is not a function 이라는 오류 메세지가 뜬다
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Not_a_function
 - 해결중
 
-~~~javascript
+```javascript
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, { useCallback } from 'react';
-import styled from 'styled-components';
-import emptyViewImage from '../assets/images/im-empty-view.png';
-import {ToDoSubmitButton} from './ToDoForm.jsx'
+import React, { useCallback } from "react";
+import styled from "styled-components";
+import emptyViewImage from "../assets/images/im-empty-view.png";
+import { ToDoSubmitButton } from "./ToDoForm.jsx";
 
-const ToDoListView = ({todolist, updateTodolist, deleteTodolist, toggleDoneTodolist, edit, setEdit}) => {
+const ToDoListView = ({
+  todolist,
+  updateTodolist,
+  deleteTodolist,
+  toggleDoneTodolist,
+  edit,
+  setEdit,
+}) => {
+  const handleToggleDoneTodolist = useCallback(
+    (id) => () => {
+      toggleDoneTodolist(id);
+    },
+    [toggleDoneTodolist]
+  );
 
-    const handleToggleDoneTodolist = useCallback((id) => () => {
-        toggleDoneTodolist(id)
-    }, [toggleDoneTodolist])
+  const handleDeleteTodolist = useCallback(
+    (id) => () => {
+      deleteTodolist(id);
+    },
+    [deleteTodolist]
+  );
 
-    const handleDeleteTodolist = useCallback((id) => () => {
-        deleteTodolist(id);
-    }, [deleteTodolist]);
-    
-    const handleUpdateTodolist = useCallback((edit) => () => {
+  const handleUpdateTodolist = useCallback(
+    (edit) => () => {
       setEdit(true);
-  }, [setEdit]);
+    },
+    [setEdit]
+  );
 
-    if (todolist.length === 0) {
-        return <EmptyViewImage src={emptyViewImage} alt="리스트가 비었어요! 등록해주세요!" />
-    }
-
+  if (todolist.length === 0) {
     return (
-        <ListContainer>
-          {todolist.map(item => {
-            if (item.isDelete) {
-                return null;
-            }
-            return  (
-                <ListItemStyle key={item.id}>
-                    <ListContentGroup>
-                        <ListItemIcon>📝</ListItemIcon>
-                        <ListItemText isDone={item.isDone}>{item.text}</ListItemText>
-                    </ListContentGroup>
-                    <ListButtonGroup>
-                        <ListDoneButton onClick={handleToggleDoneTodolist(item.id)}>완료</ListDoneButton> 
-                        <ListUpdateButton onClick={handleUpdateTodolist(item.id)}>수정</ListUpdateButton>
-                        <ListDeleteButton onClick={handleDeleteTodolist(item.id)}>삭제</ListDeleteButton>
-                    </ListButtonGroup>
-                </ListItemStyle>
-            )
-          }
-         )} 
-        </ListContainer>
-    )
-}
+      <EmptyViewImage
+        src={emptyViewImage}
+        alt="리스트가 비었어요! 등록해주세요!"
+      />
+    );
+  }
+
+  return (
+    <ListContainer>
+      {todolist.map((item) => {
+        if (item.isDelete) {
+          return null;
+        }
+        return (
+          <ListItemStyle key={item.id}>
+            <ListContentGroup>
+              <ListItemIcon>📝</ListItemIcon>
+              <ListItemText isDone={item.isDone}>{item.text}</ListItemText>
+            </ListContentGroup>
+            <ListButtonGroup>
+              <ListDoneButton onClick={handleToggleDoneTodolist(item.id)}>
+                완료
+              </ListDoneButton>
+              <ListUpdateButton onClick={handleUpdateTodolist(item.id)}>
+                수정
+              </ListUpdateButton>
+              <ListDeleteButton onClick={handleDeleteTodolist(item.id)}>
+                삭제
+              </ListDeleteButton>
+            </ListButtonGroup>
+          </ListItemStyle>
+        );
+      })}
+    </ListContainer>
+  );
+};
 
 export default ToDoListView;
-~~~
+```
 
+## 200809
 
-
-## 200809 
-
-### react todolist 
+### react todolist
 
 - 수정 버튼 구현
-- 어제까지는 수정 상태 일 때, 인풋 창의 추가 버튼을 수정으로 바꿨었는데 오늘은 인풋창의 추가버튼을 그대로 두고, 수정 상태 일 때, 투두 리스트 목록에서 수정하고자 하는 투두 아이템이 텍스트에서 인풋창으로 바뀌도록 했다. 
-- 이를 위해 ToDoListView.jsx 에서 if문을 이용해 에딧 상태 일 때는 인풋 컴포넌트를 사용했고, 버튼은 수정 취소, 수정, 삭제 버튼을 보이게 했다. 에딧 상태가 아닐 때에는 텍스트 컴포넌트를 사용했고, 버튼은 완료, 수정, 삭제버튼을 보이게 했다 . 
-- 인풋 컴포넌트는 투두폼과 투두리스트뷰 에서 쓰고, onChange 이벤트를 만들어주었다. 처음에는 투두폼에서 만든 onChange를 그대로 이용했는데 그 결과, 투두리스트뷰의 인풋창에 값을 입력하는 대로 투두폼의 인풋창에도 같은 값이 나오는 바람에 투두리스트뷰의 onChange 를 다른 이름으로 따로 만들었다. 
--  const updateTodolist 는 사실 isEdit 상태만 true로 바꿔주고 싶었는데 왜 인지 그렇게는 안되었다. 
-~~~javascript
-const updateTodolist =  useCallback((id, text) => {
-  
-   // const findIndex = [...todolist].findIndex((item) => item.id === id);
+- 어제까지는 수정 상태 일 때, 인풋 창의 추가 버튼을 수정으로 바꿨었는데 오늘은 인풋창의 추가버튼을 그대로 두고, 수정 상태 일 때, 투두 리스트 목록에서 수정하고자 하는 투두 아이템이 텍스트에서 인풋창으로 바뀌도록 했다.
+- 이를 위해 ToDoListView.jsx 에서 if문을 이용해 에딧 상태 일 때는 인풋 컴포넌트를 사용했고, 버튼은 수정 취소, 수정, 삭제 버튼을 보이게 했다. 에딧 상태가 아닐 때에는 텍스트 컴포넌트를 사용했고, 버튼은 완료, 수정, 삭제버튼을 보이게 했다 .
+- 인풋 컴포넌트는 투두폼과 투두리스트뷰 에서 쓰고, onChange 이벤트를 만들어주었다. 처음에는 투두폼에서 만든 onChange를 그대로 이용했는데 그 결과, 투두리스트뷰의 인풋창에 값을 입력하는 대로 투두폼의 인풋창에도 같은 값이 나오는 바람에 투두리스트뷰의 onChange 를 다른 이름으로 따로 만들었다.
+- const updateTodolist 는 사실 isEdit 상태만 true로 바꿔주고 싶었는데 왜 인지 그렇게는 안되었다.
+
+```javascript
+const updateTodolist = useCallback(
+  (id, text) => {
+    // const findIndex = [...todolist].findIndex((item) => item.id === id);
+    const findTarget = [...todolist].find((item) => item.id === id);
+
+    if (findTarget) {
+      findTarget.isEdit = true;
+    }
+
+    // const list = [...todolist].filter((item) => item.id !== id);
+    // list.splice(findIndex, 0, findTarget);
+    // setTodolist(list);
+  },
+  [todolist]
+);
+```
+
+- 이렇게 하면 투두리스트 아이템의 수정 버튼을 눌러도 먹통이다. 인풋창으로 바뀌어야하는데 바뀌지 않는다. 따로 에러메세지가 뜨진 않는다.
+
+```
+ const updateTodolist =  useCallback((id, text) => {
+
+   const findIndex = [...todolist].findIndex((item) => item.id === id);
    const findTarget = [...todolist].find(item => item.id ===id);
 
    if (findTarget) {
      findTarget.isEdit = true;
-     
+
    }
-      
-   // const list = [...todolist].filter((item) => item.id !== id);
-   // list.splice(findIndex, 0, findTarget);
-   // setTodolist(list);
+
+   const list = [...todolist].filter((item) => item.id !== id);
+   list.splice(findIndex, 0, findTarget);
+   setTodolist(list);
  }, [todolist]);
-~~~
- - 이렇게 하면 투두리스트 아이템의 수정 버튼을 눌러도 먹통이다. 인풋창으로 바뀌어야하는데 바뀌지 않는다. 따로 에러메세지가 뜨진 않는다.
- ~~~
-  const updateTodolist =  useCallback((id, text) => {
-   
-    const findIndex = [...todolist].findIndex((item) => item.id === id);
-    const findTarget = [...todolist].find(item => item.id ===id);
+```
 
-    if (findTarget) {
-      findTarget.isEdit = true;
-      
-    }
-       
-    const list = [...todolist].filter((item) => item.id !== id);
-    list.splice(findIndex, 0, findTarget);
-    setTodolist(list);
-  }, [todolist]);
- ~~~
-  - 이렇게 하면 수정버튼을 클릭했을 때 투두리스트 아이템의 텍스트가 인풋창으로 잘 변한다
-  - 수정 상태에서 투두리스트 아이템 인풋창에 값을 입력하고, 수정버튼을 누르면 handleUpdateSubmitTodolist 이벤트가 발생하고, id 와 인풋내용이 인자로 전달된다. 인풋내용을 보내주지 않아서 findTarget.text 를 updatedText로 갱신해줄 수 없었는데 인풋내용을 인자로 전달하면서 해결했다.
+- 이렇게 하면 수정버튼을 클릭했을 때 투두리스트 아이템의 텍스트가 인풋창으로 잘 변한다
+- 수정 상태에서 투두리스트 아이템 인풋창에 값을 입력하고, 수정버튼을 누르면 handleUpdateSubmitTodolist 이벤트가 발생하고, id 와 인풋내용이 인자로 전달된다. 인풋내용을 보내주지 않아서 findTarget.text 를 updatedText로 갱신해줄 수 없었는데 인풋내용을 인자로 전달하면서 해결했다.
 
-  ### Today I Found Out
-  - 대부분의 문제는 프롭스를 잘 내려주고, 받는 것의 문제였다. 
-  - 그동안은 머리로만 생각하고, 코드를 짜려니 뒤죽박죽 어려웠는데 노트에 해야할 것들을 정리하고, 하나씩 해결해나가니까 그나마 할만 했다. 다음부터는 노트를 이용해야겠다.
-  - edit 의 스테이트관리가 어려웠다. 다음 번엔 isEdit을 사용하지 않고, setEdit만으로 구현 가능 한지 알아봐야겠다. 
-  - 추가, 삭제 함수를 계속 보면서 거의 베끼기 수준으로 수정 버튼을 구현하는데에도 꽤 오랜 시간이 걸렸다. 그래도 해냈으니 뿌듯하긴하다. 리스트를 추가했다가 모두 삭제했을 때 todolist의 길이가 0일 때 이미지를 띄우려고 했는데 그 부분이 잘 안된다. 다음에는 이 부분을 수정해봐야겠다. 앞으로도 리액트의 끈을 계속 잡고 있어야지..!^^
+### Today I Found Out
+
+- 대부분의 문제는 프롭스를 잘 내려주고, 받는 것의 문제였다.
+- 그동안은 머리로만 생각하고, 코드를 짜려니 뒤죽박죽 어려웠는데 노트에 해야할 것들을 정리하고, 하나씩 해결해나가니까 그나마 할만 했다. 다음부터는 노트를 이용해야겠다.
+- edit 의 스테이트관리가 어려웠다. 다음 번엔 isEdit을 사용하지 않고, setEdit만으로 구현 가능 한지 알아봐야겠다.
+- 추가, 삭제 함수를 계속 보면서 거의 베끼기 수준으로 수정 버튼을 구현하는데에도 꽤 오랜 시간이 걸렸다. 그래도 해냈으니 뿌듯하긴하다. 리스트를 추가했다가 모두 삭제했을 때 todolist의 길이가 0일 때 이미지를 띄우려고 했는데 그 부분이 잘 안된다. 다음에는 이 부분을 수정해봐야겠다. 앞으로도 리액트의 끈을 계속 잡고 있어야지..!^^
 
 ## 200810
 
-### react todolist 
+### react todolist
+
 - 변수명을 지을 떄는 좀 더 시맨틱하게! 변수명을 좀 더 의미가 있도록 바꿔주었다
 - 시맨틱: 시맨틱 요소 = 의미있는 요소를 뜻하며, 이 시맨틱 요소는 브라우저와 개발자 모두에게 요소의 의미나 목적을 명확하게 설명해 줄 수 있는 요소이다.
 - 푸쉬할 때는 console.log 를 지우자
 - **스프레드 문법**
-~~~
+
+```
 const updateCancelTodolist = useCallback((id)=> {
   const findTarget = [...todolist].find(item => item.id ===id);
 
   setTodolist([...todolist])
   console.log("[...todolist]:", [...todolist]);
   console.log("[todolist]: ", [todolist]);
-  
+
   findTarget.isEdit = false;
-  
+
 }, [todolist])
-~~~
+```
 
 - setTodolist로 todolist의 상태를 관리할 때, 스프레드를 사용하면 얻는 이점은 무엇일까?
-- 우선 함수를 살펴보았다. 
-- 투두리스트에서 수정취소를 누를 때 실행되는 함수인데, 수정취소를 누르면 수정취소버튼을 누르기 전의 투두리스트 목록이 나타나야 한다. 
-- 투두리스트를 그대로 복사해서, todolist 상태를 보여주는 것이 수정취소 버튼을 구현했을 떄 가장 안전하게 todolist 목록을 보여줄 수 있을 것 같다. 내가 생각한 첫번째 장점은 안정성이다. 
+- 우선 함수를 살펴보았다.
+- 투두리스트에서 수정취소를 누를 때 실행되는 함수인데, 수정취소를 누르면 수정취소버튼을 누르기 전의 투두리스트 목록이 나타나야 한다.
+- 투두리스트를 그대로 복사해서, todolist 상태를 보여주는 것이 수정취소 버튼을 구현했을 떄 가장 안전하게 todolist 목록을 보여줄 수 있을 것 같다. 내가 생각한 첫번째 장점은 안정성이다.
 - 두번째 장점은 Spread 문법은 간편하게 배열을 복사할 수 있다는 장점이 있다.
 
 > https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Spread_syntax
@@ -629,11 +659,11 @@ const updateCancelTodolist = useCallback((id)=> {
 >
 > https://medium.com/javascript-in-plain-english/how-to-add-to-an-array-in-react-state-3d08ddb2e1dc
 
-**리액트 최적화** 
+**리액트 최적화**
 
 > https://ui.toast.com/weekly-pick/ko_20161021/
-성능 - 렌더링
-React 애플리케이션은 여러 컴포넌트들이 트리 형태로 구성되어 있다. 특정 컴포넌트의 상태가 변경될 때 하위 컴포넌트들이 연쇄적으로 렌더링 되며 운영되는 구조다.
+> 성능 - 렌더링
+> React 애플리케이션은 여러 컴포넌트들이 트리 형태로 구성되어 있다. 특정 컴포넌트의 상태가 변경될 때 하위 컴포넌트들이 연쇄적으로 렌더링 되며 운영되는 구조다.
 
 React는 기본적으로 실제로 변경된 부분만을 가려내어 DOM을 조작하도록 하는 최적화된 렌더링 엔진을 가지고 있다. 공식 사이트에 있는 O(n3)의 복잡도를 O(n)으로 줄이려는 방법문서는 상당히 흥미진진한데 기본적인 가이드 문서만 잘 따르면 자연스럽게 이 알고리즘이 적용돼 서비스에 문제가 없는 성능을 보장한다.
 
@@ -649,13 +679,11 @@ React는 기본적으로 실제로 변경된 부분만을 가려내어 DOM을 �
 
 훌륭한 설계자는 조급하게 코드 최적화를 하지 않는다. React의 트리 렌더링 성능 최적화 방식은 이 말에 충실한 계획적 최적화를 가능하게 한다. 개인적으로 React를 선호하는 이유이기도 하다.
 
+### Today I Found Out
 
-
-## Today I Found Out
-
-  - spread 문법이 주는 장점에 대해 생각해봤다. 간편하다는 점 말고도 다른 장점이 또 장점이 있을 것 같다. 
-  - 일단 오늘은 react에서 setState를 할 떄, 스프레드 문법을 사용해 State 관리를 할 수 있다는 것 정도는 기억해야겠다.
-  - 리액트의 성능적인 측면에 관한 블로그 글을 읽었다. 리액트는 변경된 부분만 가려내 DOM을 조작하도록 하는 최적화된 렌더링 엔진을 가지고 있다고 한다. 최적화 포인트가 어디가 될 지 잘 감이 오지 않는다. 이 부분에 대해 더 공부해보고 싶다. 
+- spread 문법이 주는 장점에 대해 생각해봤다. 간편하다는 점 말고도 다른 장점이 또 장점이 있을 것 같다.
+- 일단 오늘은 react에서 setState를 할 떄, 스프레드 문법을 사용해 State 관리를 할 수 있다는 것 정도는 기억해야겠다.
+- 리액트의 성능적인 측면에 관한 블로그 글을 읽었다. 리액트는 변경된 부분만 가려내 DOM을 조작하도록 하는 최적화된 렌더링 엔진을 가지고 있다고 한다. 최적화 포인트가 어디가 될 지 잘 감이 오지 않는다. 이 부분에 대해 더 공부해보고 싶다.
 
 ## 200812
 
@@ -663,7 +691,8 @@ React는 기본적으로 실제로 변경된 부분만을 가려내어 DOM을 �
 
 - 내가 쓴 댓글을 삭제하려고 한다. 405 에러가 뜬다.
 
-- delete 요청 주소를 잘못보내서 그랬다. `getUserCommentedPosts`를 `comments` 로 바꿔주니까 된다. 
+- delete 요청 주소를 잘못보내서 그랬다. `getUserCommentedPosts`를 `comments` 로 바꿔주니까 된다.
+- 스웨거를 잘 확인해야한다. delete 주소로 요청을 보내야 된다.
 
 ```
   deleteComment(data) {
@@ -680,41 +709,39 @@ React는 기본적으로 실제로 변경된 부분만을 가려내어 DOM을 �
 
 - 추천 목록 받아오기
 
-~~~vue
-<template>   
-    <div class="recent">
-          이 포스트는 어떠세요? - 현재 보고 계시는 포스트와 관련이 많은 포스트 입니다
-          <hr />
-          <div
-            v-for="view in recommendViews"
-            :key="view.postid"
-          >{{ view.title}} {{ view.createdat.split("T")[0] }}</div>
-        </div>
-</template>   
- <script>
- data: () => {
-         return {
-             recommendViews: [],
-         };
-     },
-     created() {
-       this.getRecommendView();
-     },
-      
-      getRecommendView() {
-          // console.log(this.$route.params.id, "paramsid");
-          axios
-              .post(process.env.VUE_APP_API_URL + "getPopluarpostrelated", {
-              postid: this.$route.params.id,
-          })
-              .then(({ data }) => {
-              // console.log(data.object[0].posts, "getrecommenddata!!!!");
-              this.recommendViews = data.object[0].posts;
-          });
+```vue
+<template>
+  <div class="recent">
+    이 포스트는 어떠세요? - 현재 보고 계시는 포스트와 관련이 많은 포스트 입니다
+    <hr />
+    <div v-for="view in recommendViews" :key="view.postid">
+      {{ view.title }} {{ view.createdat.split("T")[0] }}
+    </div>
+  </div>
+</template>
+<script>
+data: () => {
+        return {
+            recommendViews: [],
+        };
     },
-</script> 
+    created() {
+      this.getRecommendView();
+    },
 
-~~~
+     getRecommendView() {
+         // console.log(this.$route.params.id, "paramsid");
+         axios
+             .post(process.env.VUE_APP_API_URL + "getPopluarpostrelated", {
+             postid: this.$route.params.id,
+         })
+             .then(({ data }) => {
+             // console.log(data.object[0].posts, "getrecommenddata!!!!");
+             this.recommendViews = data.object[0].posts;
+         });
+   },
+</script>
+```
 
 ### 0814
 
@@ -744,7 +771,7 @@ logError @ webpack-internal:///./node_modules/vue/dist/vue.esm.js:1896
 
 https://dev.to/sewvandiii/npm-err-cannot-read-property-match-of-undefined-3hb5
 
-~~~
+```
 $ npm install
 npm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
 
@@ -773,12 +800,12 @@ npm ERR! This is probably not a problem with npm. There is likely additional log
 npm ERR! A complete log of this run can be found in:
 npm ERR!     C:\Users\multicampus\AppData\Roaming\npm-cache\_logs\2020-08-13T03_51_49_557Z-debug.log
 
-~~~
+```
 
 - 상속
 
-~~~vue
-         <div class="col">
+```vue
+<div class="col">
            <!-- <div class="social"> 요걸 지워주면 된다-->
               <p>간편로그인</p>
               <div class="btn" @click="kakaoLogin">
@@ -792,7 +819,7 @@ npm ERR!     C:\Users\multicampus\AppData\Roaming\npm-cache\_logs\2020-08-13T03_
               </a>
             <!--  </div>-->
           </div>
-~~~
+```
 
 ![image-20200813193952805](../../multicampus/AppData/Roaming/Typora/typora-user-images/image-20200813193952805.png)
 
@@ -1526,3 +1553,51 @@ h5 {
 
 ```
 
+- 내가 쓴 댓글 불러오기, 댓글 누르면 상세 페이지로 이동, 삭제 구현
+
+### html
+
+**rem과 em**
+
+em 단위는 `지정된 요소 (현재 요소)`의 폰트 크기를 기준으로 함. 만약 em 을 사용해 스타일을 지정한 요소에 따로 font-size 값이 지정되지 않았다면, 해당 요소는 부모요소로 부터 font-size 값을 상속(inherit) 받고, em 은 그 상속 받은 값을 기준으로 삼게 됩니다.
+
+rem 단위는 문서의 최상위 요소인 `html 요소`의 폰트 크기를 기준으로 합니다.
+em 단위는 모든 상위 부모 요소로부터의 폰트 크기를 상속받으면서 영향을 받을 수 있습니다.
+rem 단위는 브라우저에 설정된 폰트 크기를 상속받는 특성이 있다.(브라우저 기본 폰트:16px)
+
+em 단위는 최상위 요소에 지정된 폰트 크기 말고, 다른 특정 요소의 폰트 크기에 따라 그 크기가 변해야 하는 곳에 사용하십시오(주로 메뉴바)
+rem 단위는 em 단위를 쓸 필요가 없고, 또 브라우저의 폰트 크기 설정에 따라 그 크기가 변해야 하는 곳에 사용하십시오.
+폰트 크기 지정을 비롯해서 꼭 em 단위를 써야 하는 곳이 아니라면 rem 단위를 사용하십시오.
+media queries에도 rem 단위를 쓰세요.
+다중 칼럼 레이아웃의 너비에는 em 혹은 rem을 쓰진 마십시오 - 대신 %를 쓰세요.
+만약에 크기가 변할 경우 해당 요소의 레이아웃이 깨지는 걸 막을 수 없다면 em과 rem 모두 쓰지 마세요.
+
+> https://webdesign.tutsplus.com/ko/tutorials/comprehensive-guide-when-to-use-em-vs-rem--cms-23984
+
+**rem이 반응형 홈페이지에 사용되는 이유**
+미디어쿼리로 반응형을 제작할 때 브레이크 포인트에서 html 폰트사이즈만 변경해주면 하위rem 단위 크기가 모두 변경되기 때문에 편리하다
+
+> https://yeoninim.tistory.com/38
+> px:반응형 웹사이트를 만들때에는 적절하지 않습니다.
+
+최상위에 html 태그가 있고, 그 밑에 body 태그로 본문 영역이 표시 되며, container 라는 클래스를 가진 div 요소 하위에 content1 과 content2 라는 클래스의 div 요소가 자리 잡고 있습니다.
+
+```
+html { font-size: 16px; }
+body { font-size: 2em; }
+div.container { font-size: 2em; }
+div.content1 { font-size: 2rem; }
+div.content2 { font-size: 2em; }
+```
+
+이 경우 content1 의 font-size 는 32px 이지만, content2 의 font-size 는 16px _ 2 _ 2 \* 2 이므로 128px 로 지정됩니다.
+
+> http://triki.net/prgm/3250
+
+## 200813
+
+- 모달 로그인 창에서 사인업으로 넘어가려면, login.vue 와 같은 하나의 파일에 로그인 모달과 사인업 모달을 만들어주면 된다.
+- 처음에는 로그인 모달 열듯이 사인업 모달을 같은 방법으로 열었었는데 이렇게 하면 사인업 모달을 닫으면 그 밑에 있던 로그인 모달이 뜬다.
+- 이렇게 하는 것보다는 하나의 페이지에서 로그인과 사인업에 대한 플래그를 주고, v-if 를 이용하면 로그인 모달과 사인업 모달을 연결해서 띄울 수 있다.
+- 모달 창을 반으로 쪼개서 왼쪽엔 소셜 로그인, 오른쪽엔 일반로그인을 구현하면서 row, col 을 이용해 양분화 했다.
+  > > > > > > > dc7da64aaafb6d77cd54d22d075ac76bfec7ec93
