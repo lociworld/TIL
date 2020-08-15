@@ -716,3 +716,813 @@ React는 기본적으로 실제로 변경된 부분만을 가려내어 DOM을 �
 
 ~~~
 
+### 0814
+
+```
+[Vue warn]: Error in created hook: "TypeError: this.getRecommendView is not a function"
+
+found in
+
+---> <Detail> at src/page/post/Detail.vue
+       <App> at src/App.vue
+         <Root>
+warn @ webpack-internal:///./node_modules/vue/dist/vue.esm.js:629
+webpack-internal:///./node_modules/vue/dist/vue.esm.js:1896 TypeError: this.getRecommendView is not a function
+    at VueComponent.created (webpack-internal:///./node_modules/cache-loader/dist/cjs.js?!./node_modules/babel-loader/lib/index.js!./node_modules/cache-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./src/page/post/Detail.vue?vue&type=script&lang=js&:255)
+    at invokeWithErrorHandling (webpack-internal:///./node_modules/vue/dist/vue.esm.js:1862)
+    at callHook (webpack-internal:///./node_modules/vue/dist/vue.esm.js:4222)
+    at VueComponent.Vue._init (webpack-internal:///./node_modules/vue/dist/vue.esm.js:5007)
+    at new VueComponent (webpack-internal:///./node_modules/vue/dist/vue.esm.js:5153)
+    at createComponentInstanceForVnode (webpack-internal:///./node_modules/vue/dist/vue.esm.js:3289)
+    at init (webpack-internal:///./node_modules/vue/dist/vue.esm.js:3120)
+    at merged (webpack-internal:///./node_modules/vue/dist/vue.esm.js:3307)
+    at createComponent (webpack-internal:///./node_modules/vue/dist/vue.esm.js:5979)
+    at createElm (webpack-internal:///./node_modules/vue/dist/vue.esm.js:5926)
+logError @ webpack-internal:///./node_modules/vue/dist/vue.esm.js:1896
+
+```
+
+https://dev.to/sewvandiii/npm-err-cannot-read-property-match-of-undefined-3hb5
+
+~~~
+$ npm install
+npm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+
+> yorkie@2.0.0 install C:\Users\loci\s03p13a610\frontend\node_modules\yorkie
+> node bin/install.js
+
+'node'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+배치 파일이 아닙니다.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.2.7 (node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.1.2 (node_modules\firebase-tools\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.1.2 (node_modules\watchpack\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+npm WARN @vue/compiler-sfc@3.0.0-rc.5 requires a peer of vue@3.0.0-rc.5 but none is installed. You must install peer dependencies yourself.
+npm WARN vue-awesome-swiper@4.1.1 requires a peer of swiper@^5.2.0 but none is installed. You must install peer dependencies yourself.
+
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! yorkie@2.0.0 install: `node bin/install.js`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the yorkie@2.0.0 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\multicampus\AppData\Roaming\npm-cache\_logs\2020-08-13T03_51_49_557Z-debug.log
+
+~~~
+
+- 상속
+
+~~~vue
+         <div class="col">
+           <!-- <div class="social"> 요걸 지워주면 된다-->
+              <p>간편로그인</p>
+              <div class="btn" @click="kakaoLogin">
+                Login with KaKaoTalk
+              </div>
+              <a href="#" class="github btn" @click="githubLogin">
+                Login with Github
+              </a>
+              <a href="#" class="naver btn" @click="naverLogin">
+                Login with Naver
+              </a>
+            <!--  </div>-->
+          </div>
+~~~
+
+![image-20200813193952805](../../multicampus/AppData/Roaming/Typora/typora-user-images/image-20200813193952805.png)
+
+![image-20200813194033931](../../multicampus/AppData/Roaming/Typora/typora-user-images/image-20200813194033931.png)
+
+# 200814
+
+- 배경 이미지 넣기
+
+```
+.sang {
+  background-image: url("~@/assets/img/welcome.jpg");
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  top: 0;
+  left: 0;
+}
+```
+
+> https://coder-coder.com/background-image-opacity/
+
+- padding-bottom:1rem으로 처리하긴 핸쓴데... 원래는 로그인 하시겠어요? 로그인 div에 주고 싶었는데 패딩 탑음 먹히는데 바텀이 안먹힘..미스터리..
+
+![image-20200814183548524](C:\Users\multicampus\AppData\Roaming\Typora\typora-user-images\image-20200814183548524.png)
+
+```
+<template>
+  <div>
+    <div class="user wrap" id="login" style="height: auto">
+      <div v-if="!issignup" class="container">
+        <h2 style="text-align:center; padding-top: 3%; margin-bottom: 5%">
+          Login
+        </h2>
+        <div class="row">
+          <div class="col" style="padding-left:5%; padding-right:5%">
+            <p>간편로그인</p>
+            <div class="kakao btn" @click="kakaoLogin">
+              Login with KaKaoTalk
+            </div>
+            <a href="#" class="github btn" @click="githubLogin">
+              Login with Github
+            </a>
+            <a href="#" class="naver btn" @click="naverLogin">
+              Login with Naver
+            </a>
+          </div>
+          <div>
+            <span class="vl-innertext"><b>or</b></span>
+          </div>
+
+          <div class="col">
+            <p>일반로그인</p>
+            <input
+              type="text"
+              v-model="Login.email"
+              id="email"
+              placeholder="이메일을 입력해주세요"
+              required
+            />
+            <input
+              v-model="Login.password"
+              type="password"
+              id="password"
+              username="password"
+              placeholder="비밀번호를 입력해주세요"
+              required
+            />
+            <div class="attention">
+              *영문, 숫자 혼용 8자 이상 입력해주세요
+            </div>
+            <input type="submit" value="Login" @click="checkHandler" />
+            <!-- <div class="gotosignup"> -->
+            <!-- <div style="float: left;">아직 회원이 아니신가요?</div>
+              <div style="float: right;">
+                <button @click="openSignupModal">회원가입</button>
+              </div> -->
+            <div class="readytosignup" style="width:90%">
+              <div style="float:left">아직 회원이 아니신가요?</div>
+              <div
+                class="gotosignup"
+                style="float:right"
+                @click="openSignupModal"
+              >
+                회원가입
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user wrap" id="signup" style="height: auto">
+      <div v-if="issignup" class="container">
+        <div class="row">
+          <div class="col hero">
+            <!-- <img
+              src="@/assets/img/welcome.jpg"
+              alt="멋진
+            상원이"
+              width="100%"
+            /> -->
+
+            <div class="welcome">
+              <h5>
+                멋쟁이 상원이처럼 <br />
+                블로그에 오신 것을 환영합니다. <br />
+              </h5>
+              <br />
+
+              기억보단 기록을!!!
+              <br />
+              코딩 공부한 내용을<br />
+              블로그에 기록하고 있어요<br />
+              <br />
+              저는 처음에 코딩을 시작할 때
+              <br />
+              어디서부터 시작할 지 막막했어요
+              <br />
+              어떻게 공부하면 좋을 지
+              <br />
+              코딩 커리큘럼도 소개해드립니다
+              <br />
+              <br />
+              열심히 공부해서 같이
+              <br />
+              멋진 개발자가 됩시다:)
+            </div>
+          </div>
+
+          <!-- <div class="vl">
+          <span class="vl-innertext"><b>or</b> </span>
+        </div> -->
+          <div class="col">
+            <div
+              style="width:90% ;margin-top:5%; margin-bottom:20%; padding-left: 10%"
+            >
+              <h2 style="float:left">Signup</h2>
+              <b-icon style="float:right" icon="x-circle" />
+            </div>
+            <div class="signup">
+              <p style="font-weight:bold ; ">회원가입</p>
+              <input
+                type="text"
+                :class="{ 'border-red': !isNickname }"
+                v-model="nickName"
+                id="nickName"
+                placeholder="닉네임을 입력해주세요"
+                maxlength="8"
+                required
+                @change="nickNameVal"
+              />
+              <input
+                type="text"
+                :class="{ 'border-red': !isEmail }"
+                v-model="email"
+                id="email"
+                placeholder="이메일을 입력해주세요"
+                required
+                @change="emailVal"
+              />
+              <input
+                :class="{ 'border-red': !isCheckEmailCode }"
+                v-if="this.isEmailCodeSend"
+                style="display:inline; width:40%; line-height: 20px; border:0px; border-bottom: 1px solid black"
+                v-model="emailCode"
+                @change="codeVal"
+              />
+              <div class="sendnumber" @click="emailValSend">
+                인증번호 보내기
+              </div>
+              <input
+                :class="{ 'border-red': !isPwd }"
+                v-model="password"
+                id="password"
+                username="password"
+                :type="passwordType"
+                placeholder="비밀번호를 입력해주세요"
+                required
+                @change="pwdVal"
+              />
+              <div class="attention">
+                *영문, 숫자 혼용 8자 이상 입력해주세요
+              </div>
+              <input
+                :class="{ 'border-red': !isPwdConfirm }"
+                v-model="passwordConfirm"
+                :type="passwordConfirmType"
+                id="password-confirm"
+                username="password"
+                placeholder="비밀번호를 한번 더 입력해주세요"
+                required
+                @change="pwdConfirmVal"
+              />
+              <div class="attention">
+                *영문, 숫자 혼용 8자 이상 입력해주세요
+              </div>
+              <!-- <div class="confirm">
+              <div style="float: left;">
+                <input
+                  v-model="isTerm"
+                  type="checkbox"
+                  id="term"
+                  style="float: left;"
+                />
+                <label for="term" class="confirmMessage"
+                  >약관에 동의합니다</label
+                >
+              </div>
+              <div style="float: right; width:90%" class="go-term">
+                약관 보기
+              </div>
+            </div> -->
+
+              <input type="submit" value="Signup" @click="checkJoin" />
+              <div style="width:90%;  padding-top:0.5rem;">
+                <div style="float:left ">
+                  로그인하시겠어요?
+                </div>
+                <div
+                  class="gotologin"
+                  style="float:right ;"
+                  @click="openLoginModal"
+                >
+                  로그인
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import constants from "../../lib/constants";
+import axios from "axios";
+// import Signup from "./Signup.vue";
+import MyModal from "@/components/common/MyModal.vue";
+
+export default {
+  name: "Login",
+  components: { MyModal },
+  data: () => {
+    return {
+      Login: {
+        constants,
+        email: "",
+        password: "",
+        loginModal: false,
+      },
+      color: "white",
+      email: "",
+      nickName: "",
+      password: "",
+      passwordConfirm: "",
+      isTerm: true, // 약관동의
+      isEmail: false, // 올바른 이메일 형식 + 중복하지 않은 이메일
+      isNickname: false, // 중복하지 않은 닉네임
+      passwordType: "password",
+      passwordConfirmType: "password",
+      isEmailCodeSend: false, // 이메일 인증 번호를 전송한지 체크
+      emailCode: "", // 인증 번호
+      checkEmailCode: "", // 받아온 인증 번호
+      isCheckEmailCode: false, // 인증 번호가 일치하는지 체크
+      isPwd: false, // 비밀번호 올바른 형식
+      isPwdConfirm: false,
+      issignup: false,
+      islogin: false,
+    };
+  },
+  computed: {},
+  created() {},
+
+  watch: {},
+  methods: {
+    naverLogin() {
+      axios.get(process.env.VUE_APP_API_URL + "naver").then(({ data }) => {
+        if (data.apiURL) {
+          location.href = data.apiURL;
+        }
+      });
+    },
+    kakaoLogin() {
+      // console.log("here");
+      axios.get(process.env.VUE_APP_API_URL + "kakao").then(({ data }) => {
+        if (data.apiURL) {
+          location.href = data.apiURL;
+        }
+      });
+    },
+    googleLogin() {
+      // console.log(process.env.VUE_APP_API_URL + "kakao");
+      axios.get(process.env.VUE_APP_API_URL + "google").then(({ data }) => {
+        if (data.apiURL) {
+          location.href = data.apiURL;
+        }
+      });
+    },
+    githubLogin() {
+      // console.log(process.env.VUE_APP_API_URL + "kakao");
+      axios.get(process.env.VUE_APP_API_URL + "github").then(({ data }) => {
+        if (data.apiURL) {
+          location.href = data.apiURL;
+        }
+      });
+    },
+    openSignupModal() {
+      this.issignup = true;
+    },
+    openLoginModal() {
+      this.issignup = false;
+    },
+    // closeSingupModal() {
+    //   this.issignup = false;
+    // },
+    // closeModal() {
+    //   this.Login.signupModal = false;
+    // },
+    checkHandler() {
+      if (!this.Login.email) {
+        alert("이메일을 입력해주세요.");
+      } else if (!this.Login.password) {
+        alert("패스워드를 입력해주세요.");
+      } else this.login();
+    },
+    login() {
+      axios
+        .post(process.env.VUE_APP_API_URL + "account/socialCheck", {
+          issocial: null,
+          useremail: this.Login.email,
+        })
+        .then(({ data }) => {
+          if (data.check == "1") {
+            switch (data.socialtype) {
+              case "K":
+                alert("카카오로 회원가입이 되어있습니다.");
+                break;
+              case "N":
+                alert("네이버로 회원가입이 되어있습니다.");
+                break;
+              case "GH":
+                alert("깃허브로 회원가입이 되어있습니다.");
+                break;
+            }
+          } else if (data.check == "2") {
+            axios
+              .post(process.env.VUE_APP_API_URL + "account/login", {
+                useremail: this.Login.email,
+                password: this.Login.password,
+              })
+              .then(({ data }) => {
+                if (data.data == "success") {
+                  alert("로그인 되었습니다.");
+                  this.$store.commit("loginToken", data.object);
+                  // console.log(data.object);
+                  if (this.$route.path != "/") this.$router.push("/");
+                } else {
+                  alert("비밀번호가 틀렸습니다.");
+                  // console.log(data);
+                }
+              })
+              .catch(() => {
+                if (this.$route.path != "/500")
+                  this.$router.push("/500/로그인에 실패했습니다.");
+              });
+          } else {
+            alert("존재하지 않는 이메일입니다.");
+          }
+        });
+    },
+    checkJoin() {
+      if (!this.isPwd) {
+        alert("비밀번호가 올바르지 않습니다.");
+      } else if (!this.isPwdConfirm) {
+        alert("비밀번호가 일치하지 않습니다.");
+      } else if (!this.isNickname) {
+        alert("닉네임이 올바르지 않습니다.");
+      } else if (!this.isEmail) {
+        alert("이메일이 올바르지 않습니다.");
+      } else if (!this.isCheckEmailCode) {
+        alert("이메일 인증 번호를 확인해주세요.");
+      } else if (!this.isTerm) {
+        alert("약관에 동의해주세요.");
+      } else {
+        this.join();
+      }
+    },
+    join() {
+      // form 검증
+      axios
+        .post(process.env.VUE_APP_API_URL + "account/signup", {
+          username: this.nickName,
+          password: this.password,
+          useremail: this.email,
+        })
+        .then(({ data }) => {
+          if (data.data == "success") {
+            alert("회원가입에 성공하였습니다.");
+            if (this.$route.path != "/") this.$router.push("/");
+          } else {
+            alert("실패");
+            this.$router.push("/500");
+          }
+        });
+    },
+    emailValidate() {
+      let regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+      return regex.test(this.email);
+    },
+    passwordValidate() {
+      let regex = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,}$/;
+      return regex.test(this.password);
+    },
+    emailValSend() {
+      if (this.email) {
+        // axios로 코드 전송
+        this.isEmailCodeSend = true; // 이메일을 보냈다는 뜻
+        axios
+          .post(process.env.VUE_APP_API_URL + "account/SendCheckEmail", {
+            username: this.nickName,
+            useremail: this.email,
+          })
+          .then(({ data }) => {
+            if (data.data == "success") {
+              alert("인증 번호 발송에 성공했습니다.");
+              this.checkEmailCode = data.RandomNumber;
+            } else {
+              alert("인증 번호 발송에 실패했습니다.");
+            }
+          });
+      } else if (!this.email) alert("이메일을 확인해주세요.");
+      else alert("아이디를 확인해주세요.");
+    },
+    nickNameVal() {
+      // console.log(this.nickName);
+      axios
+        .post(process.env.VUE_APP_API_URL + "account/usernameDuplicateCheck", {
+          username: this.nickName,
+        })
+        .then(({ data }) => {
+          // console.log(data);
+          if (data.data == "success") {
+            this.isNickname = true;
+          } else {
+            this.isNickname = false;
+          }
+        })
+        .catch(function(error) {
+          console.log("fail");
+          this.isNickname = false;
+        });
+    },
+    emailVal() {
+      if (this.emailValidate()) {
+        axios
+          .post(process.env.VUE_APP_API_URL + "account/EmailDuplicateCheck", {
+            useremail: this.email,
+          })
+          .then(({ data }) => {
+            if (data.data == "success") {
+              this.isEmail = true;
+              // console.log("중복x");
+            } else {
+              this.isEmail = false;
+              // console.log("중복o");
+            }
+          })
+          .catch(function(error) {
+            this.isEmail = false;
+          });
+      } else {
+        this.isEmail = false;
+      }
+    },
+    pwdVal() {
+      if (!this.passwordValidate()) this.isPwd = false;
+      else this.isPwd = true;
+    },
+    pwdConfirmVal() {
+      if (this.password != this.passwordConfirm) this.isPwdConfirm = false;
+      else this.isPwdConfirm = true;
+    },
+    codeVal() {
+      if (this.checkEmailCode && this.checkEmailCode == this.emailCode.trim()) {
+        this.isCheckEmailCode = true;
+      } else this.isCheckEmailCode = false;
+    },
+  },
+};
+</script>
+
+<style scoped>
+/* .container {
+  width: 90%;
+  margin: 10px auto;
+} */
+.border-red {
+  border: 2px solid darkred;
+}
+/* .t {
+  padding-left: 5%;
+} */
+.social {
+  float: left;
+  width: 30%;
+  padding-left: 2%;
+}
+.or {
+  float: left;
+  width: 10%;
+  margin-top: 20%;
+  padding-left: 4%;
+  background-color: #f1f1f1;
+}
+.login {
+  float: right;
+  width: 60%;
+  /* padding-right: 2%; */
+}
+.gotosignup {
+  cursor: pointer;
+}
+.gotologin {
+  cursor: pointer;
+}
+.sendnumber {
+  cursor: pointer;
+}
+.attention {
+  float: left;
+  font-size: 0.8em;
+}
+/* .gotosignup {
+  margin-top: 10px;
+  margin-bottom: 10px;
+} */
+.wrap {
+  width: 100%;
+  float: left;
+}
+/* h2 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+} */
+p {
+  float: left;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.container {
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+  background-color: #f2f2f2;
+  padding: 0;
+  border: 0;
+  /* padding: 20px 0 30px 0; */
+}
+form {
+  border-radius: 20px;
+}
+input,
+.btn {
+  width: 90%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 7px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 20px;
+  text-decoration: none;
+}
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+.kakao {
+  background-color: #f7e600;
+  color: white;
+  font-size: 13px;
+}
+
+.github {
+  background-color: #dd4b39;
+  color: white;
+}
+.naver {
+  background-color: #2db400;
+  color: white;
+}
+input[type="submit"] {
+  background-color: #9a89d3;
+  color: white !important;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+input[type="submit"]:hover {
+  background-color: #566270;
+}
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  /* padding: 0 50px; */
+  margin-top: 10px;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+.row {
+  margin: 0;
+  padding: 0;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  padding: 0;
+}
+
+.signup {
+  padding-left: 10%;
+}
+/* .vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 270px;
+}
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+} */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 250px;
+}
+
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+.hide-md-lg {
+  display: none;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("~@/assets/img/welcome.jpg");
+  background-size: cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.welcome {
+  position: relative;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  display: inline-block;
+  width: 80%;
+  margin: 5% 0;
+}
+
+h5 {
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.5;
+}
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+    border: 0;
+  }
+  .vl {
+    display: none;
+  }
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+  .col .sang {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*     background-image: url(https://placeimg.com/300/400/animals/grayscale);
+ */
+    border: 0;
+  }
+}
+</style>
+
+```
+
