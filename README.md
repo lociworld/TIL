@@ -1674,6 +1674,125 @@ import 'swiper/swiper-bundle.css'
 >
 > https://www.telerik.com/blogs/everything-you-should-know-about-filters-in-vue
 
-- preloader 
+- preloader 고전 중..
+
+  - 로드가 완료되는 시점을 못잡겠다
+  - document.realStata =="complete" 안된
 
   
+
+  
+
+  
+
+  
+
+  
+
+## 200819
+
+- 페이지 로더
+
+~~~vue
+<template>
+  <div id="page" class="page-loader" v-if="!isloaded">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+</template>
+
+<script>
+  export default {
+    data: () => {
+      return {
+        isloaded: false
+      }
+    },
+    mounted() {
+      document.onreadystatechange = () => {
+        if (document.readyState == "complete") { 
+          this.isloaded = true;
+          console.log(document.getElementById('page'))
+        } 
+        else {
+           console.log(document.getElementById('page'))
+
+        }
+      }
+    },
+  }
+</script>
+
+<style lang="scss" scoped>
+   $colors: #8CC271, #69BEEB, #F5AA39, #E9643B;
+
+  // -----------------------------------------------------
+
+  .page-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #333;
+    z-index: 999;
+  }
+
+  // -----------------------------------------------------
+
+  .cube{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+
+    @for $i from 1 through length($colors) {
+      &:nth-child(#{$i}) {
+        background-color: nth($colors, $i);
+      }
+    }
+
+    &:first-child {
+      animation: left 1s infinite;
+    }
+
+    &:last-child {
+      animation: right 1s infinite .5s;
+    }
+  }
+
+  // -----------------------------------------------------
+
+  @keyframes left {
+    40% {
+      transform: translateX(-60px);
+    }
+    50% {
+      transform: translateX(0);      
+    }
+  }
+
+  @keyframes right {
+    40% {
+      transform: translateX(60px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+  }
+</style>
+~~~
+
+- 로딩
+
+> https://codepen.io/Metty/pen/xJoWqq
+
+# 200820
+
+- 부트스트랩 뷰 호버 효과 주기
+
+  > 스타일로 직접 박스 쉐도우 주면 박스 쉐도우는 먹힘
+  >
+  > https://www.positronx.io/build-responsive-carousel-in-vue-js-with-bootstrapvue/
