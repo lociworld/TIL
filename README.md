@@ -1,6 +1,6 @@
 # Today I Learned
 
-> ​ 매일 배운 내용을 정리합니다.
+>  매일 배운 내용을 정리합니다.
 
 ## 200622
 
@@ -1600,3 +1600,199 @@ div.content2 { font-size: 2em; }
 - 처음에는 로그인 모달 열듯이 사인업 모달을 같은 방법으로 열었었는데 이렇게 하면 사인업 모달을 닫으면 그 밑에 있던 로그인 모달이 뜬다.
 - 이렇게 하는 것보다는 하나의 페이지에서 로그인과 사인업에 대한 플래그를 주고, v-if 를 이용하면 로그인 모달과 사인업 모달을 연결해서 띄울 수 있다.
 - 모달 창을 반으로 쪼개서 왼쪽엔 소셜 로그인, 오른쪽엔 일반로그인을 구현하면서 row, col 을 이용해 양분화 했다.
+
+## 200818
+
+- 스와이퍼가 잘 안들어갔던 이유...번들을 임포트 안해줘서..!!!
+
+~~~
+import RecentSwiper from "../../components/common/RecentSwiper.vue";
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
+~~~
+
+- 홈
+
+~~~
+ <section id="banner">
+            <div class="content">
+              <header>
+                <h1>
+                  안녕하세요 상원입니다<br />
+                  
+                </h1>
+                <p>A free and fully responsive site template</p>
+              </header>
+              <p>
+                Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
+                aliquam facilisis ante interdum congue. Integer mollis, nisl
+                amet convallis, porttitor magna ullamcorper, amet egestas
+                mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id
+                euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor
+                sit nullam.
+              </p>
+              <ul class="actions">
+                <li><a href="#" class="button big">Learn More</a></li>
+              </ul>
+            </div>
+            <span class="image object">
+              <img src="@/assets/img/welcome.jpg" alt="" />
+            </span>
+          </section>
+~~~
+
+- slit  오류... slice로 고쳐서 해결
+
+~~~javascript
+
+       <div v-if="$store.state.useremail && recentViews.length > 0" class="postbox">
+        <h6 class="postboxtitle">최근에 본 포스트입니다</h6>
+        <div>
+          <table class="alt">
+            <thead>
+              <tr>
+                <th>Title</th>
+                 <th>Date</th>
+                <th>Writer</th>
+              </tr>
+            </thead>
+            <tbody class="alt">
+              <tr v-for="recent in recentViews" :key="recent.postid">
+                <td   class="relative-title" @click="mvDetail(recent.postid)">{{ recent.title }} </td>
+                <td >
+{{ recent.createdat.slice(0,10) }}</td>
+ 
+                <td>{{ recent.username }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+~~~
+
+> https://flaviocopes.com/vue-filters/
+>
+> https://www.telerik.com/blogs/everything-you-should-know-about-filters-in-vue
+
+- preloader 고전 중..
+
+  - 로드가 완료되는 시점을 못잡겠다
+  - document.realStata =="complete" 안된
+
+  
+
+  
+
+  
+
+  
+
+  
+
+## 200819
+
+- 페이지 로더
+
+~~~vue
+<template>
+  <div id="page" class="page-loader" v-if="!isloaded">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+</template>
+
+<script>
+  export default {
+    data: () => {
+      return {
+        isloaded: false
+      }
+    },
+    mounted() {
+      document.onreadystatechange = () => {
+        if (document.readyState == "complete") { 
+          this.isloaded = true;
+          console.log(document.getElementById('page'))
+        } 
+        else {
+           console.log(document.getElementById('page'))
+
+        }
+      }
+    },
+  }
+</script>
+
+<style lang="scss" scoped>
+   $colors: #8CC271, #69BEEB, #F5AA39, #E9643B;
+
+  // -----------------------------------------------------
+
+  .page-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #333;
+    z-index: 999;
+  }
+
+  // -----------------------------------------------------
+
+  .cube{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+
+    @for $i from 1 through length($colors) {
+      &:nth-child(#{$i}) {
+        background-color: nth($colors, $i);
+      }
+    }
+
+    &:first-child {
+      animation: left 1s infinite;
+    }
+
+    &:last-child {
+      animation: right 1s infinite .5s;
+    }
+  }
+
+  // -----------------------------------------------------
+
+  @keyframes left {
+    40% {
+      transform: translateX(-60px);
+    }
+    50% {
+      transform: translateX(0);      
+    }
+  }
+
+  @keyframes right {
+    40% {
+      transform: translateX(60px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+  }
+</style>
+~~~
+
+- 로딩
+
+> https://codepen.io/Metty/pen/xJoWqq
+
+# 200820
+
+- 부트스트랩 뷰 호버 효과 주기
+
+  > 스타일로 직접 박스 쉐도우 주면 박스 쉐도우는 먹힘
+  >
+  > https://www.positronx.io/build-responsive-carousel-in-vue-js-with-bootstrapvue/
