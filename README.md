@@ -1796,3 +1796,264 @@ import 'swiper/swiper-bundle.css'
   > 스타일로 직접 박스 쉐도우 주면 박스 쉐도우는 먹힘
   >
   > https://www.positronx.io/build-responsive-carousel-in-vue-js-with-bootstrapvue/
+
+
+
+
+
+- 모달 안에 스크롤 뷰 
+- 로고 옆에 텍스트 가운데 정렬 
+
+# 200822
+
+## 리액트 클론 코딩
+
+> https://github.com/facebook/create-react-app
+
+~~~bash
+npx create-react-app my-app
+cd my-app
+yarn start
+~~~
+
+- 로고 창을 만들어봅시다
+
+### Fetch API
+
+- ajax를 구현하는 여러가지 기술 중 하나이다.
+- fetch로 response 객체를 받아옴
+- response 객체로 받아서  text로 변환하거나 json 
+
+ fetch 요청 후에 return 값이 Promise 객체이기 때문이죠. 참고로 Promise 객체는 ES2015 스펙이기 때문에 ES2015 문법을 사용하겠습니다. fetch 함수도 window 아래에 위치합니다.
+
+response 객체? promise  객체?
+
+~~~
+fetch('주소', 설정객체).then(콜백).catch(콜백);
+
+~~~
+
+> https://www.zerocho.com/category/HTML&DOM/post/595b4bc97cafe885540c0c1c
+
+~~~html
+<html>
+  <body>
+      <input type="button" value="fetch" onclick="fetch('html').then(funtion(response){response.text().then(function(text){
+                                                  document.querySelector('article').innerHTML = text;
+                                                  })
+                                                  })">
+  </body>
+</html>
+~~~
+
+### axios
+
+Promise 기반의 Http 통신 라이브러리
+
+axios는 node.js와 브라우저를 위한 http통신 javascript 라이브러리입니다.
+
+아래와 같이 모든 브라우저를 지원합니다. (Fetch와 달리 크로스 브라우징에 최적화)
+
+ 상대적으로 다른 HTTP 통신 라이브러리들에 비해 문서화가 잘되어 있고 API가 다양함
+
+Axios는 뷰에서 권고하는 Promise 기반의 HTTP 통신 라이브러리이다. HTTP 클라이언트 라이브러리이다.
+
+Axios는 HTTP 클라이언트 라이브러리로 React, Vue에서 많이 사용되는 라이브러리입니다.
+
+Axios는 Promise 기반으로 XHRHttpRequests 요청을 쉽게 할 수 있습니다.
+
+Axios is a promise based HTTP client for the browser and Node.js. Axios makes it easy to send asynchronous HTTP requests to REST endpoints and perform CRUD operations. It can be used in plain JavaScript or with a library such as Vue or React.
+
+axios는 ajax 등의 웹 통신 기능을 제공하는 라이브러리 중 하나다.
+
+jquery와 비교하면, 타입스크립트도 사용이 가능하고, 요청 취소도 가능하며, 통신 기능만을 전담하므로 가볍다는 것이 장점이다.
+
+약간의 단점은, ES6 버전의 자바스크립트 문법을 사용하므로, 낮은 버전의 브라우저에서는 구동하지 않을 수도 있다는 것이다. 하지만 그것도 바벨, 웹팩 등으로 트랜스파일을 가하면 해결될 문제다.
+
+- 특징
+  - 브라우저에선 [XMLHttpRequests](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)을 nodejs에선 [http](https://nodejs.org/api/http.html) requests(요청) 생성
+  - [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) API 지원
+  - 요청과 응답을 중단
+  - JSON 데이터 자동 변환
+  - 요청 취소
+  - [XSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery)로부터 보호하기위한 클라이언트 측 지원
+
+- 사용법
+
+  - 라이브러리 설치 
+
+  ~~~bash
+  yarn add axios
+  ~~~
+
+> [https://joshua1988.github.io/vue-camp/vue/axios.html#%EC%95%A1%EC%8B%9C%EC%98%A4%EC%8A%A4-%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95](https://joshua1988.github.io/vue-camp/vue/axios.html#액시오스-사용방법)
+>
+> https://github.com/axios/axios
+>
+> [https://velog.io/@sss5793/axios-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-uuk5elxk88](https://velog.io/@sss5793/axios-사용해보기-uuk5elxk88)
+>
+> 실습
+>
+> > http://zetcode.com/javascript/axios/
+
+> https://uxgjs.tistory.com/138
+>
+> 깔끔히 정리된 글
+
+### 포켓몬 api 써보기 
+
+- JSON.stringify( )는 자바스크립트의 값을 JSON 문자열로 변환한다.
+
+  > https://blog.sonim1.com/157
+  >
+  > https://mkil.tistory.com/322
+
+- useeffect
+
+  > https://www.daleseo.com/react-hooks-use-effect/
+
+- 해보고 싶은거: 반응형 카드 부트스트랩 없이 만들어보기 
+
+  ~~~
+  pokemon?limit=100&offset=20 //
+  ~~~
+
+- rest api embed
+
+embed 파라미터
+
+- fetch와 axios
+
+  > [https://hoorooroob.tistory.com/entry/React-React-Naive-TIPS-axios-%EC%99%80-fetch-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C](https://hoorooroob.tistory.com/entry/React-React-Naive-TIPS-axios-와-fetch-어떤-것을-사용할까)
+
+- asynce await 
+  - fetch().then(),then().then() 이 길어지니까 대신 어웨잇으로 
+- 클론 후 내 레포로 옮기기
+
+~~~bash
+git remote set-url origin {my_respo_url}
+~~~
+
+> https://dev.to/dance2die/push-git-cloned-repository-to-your-own-on-github-1ili
+
+- 클론 받은 후 
+
+~~~bash
+yarn install
+yarn start
+~~~
+
+![image-20200822160006360](image-20200822160006360.png)
+
+- 현재 포켓몬 이미지와 이름만 있는 상태 
+- 에러
+
+~~~
+Error: Objects are not valid as a React child (found: object with keys {slot, type}). If you meant to render a collection of children, use an array instead.
+    in div (created by styled.div)
+    in styled.div (at App.js:54)
+    in div (created by styled.div)
+    in styled.div (at App.js:53)
+    in div (created by styled.div)
+    in styled.div (at App.js:51)
+    in div (created by styled.div)
+    in styled.div (at App.js:47)
+    in div (created by styled.div)
+    in styled.div (at App.js:46)
+    in div (created by styled.div)
+    in styled.div (at App.js:44)
+    in App (at src/index.js:8)
+    in StrictMode (at src/index.js:7)
+▶ 29 stack frames were collapsed.
+(anonymous function)
+~~~
+
+- 콘솔로그를 찍어보자...
+- {} 괄호를 한 번 더 감싸주고, 콘솔로그를 찍어봄 
+
+~~~
+ const getPokemonDetail = useCallback((url) => {
+    Axios.get(url).then((response) => 
+    {     console.log("response", response)
+
+      setPokemonInfo((prevPokemon) => [
+        ...prevPokemon,
+        {
+          pokemonName: response.data.name,
+          pokemonProfile: response.data.sprites.front_default,
+          pokemonType: response.data.types,
+        },
+      ])
+    }
+    );
+  }, []);
+~~~
+
+- 괄호 안감싸면 콤마 없다고? 에러 뜸 
+
+  ~~~
+    Line 16:5:  Parsing error: Unexpected token, expected ","
+  
+    14 |     Axios.get(url).then((response) => 
+    15 |     console.log(response)
+  > 16 |     {
+       |     ^
+    17 |       setPokemonInfo((prevPokemon) => [
+    18 |         ...prevPokemon,
+    19 |         {
+  // 소괄호로 한 번 더 감싸주고 콘솔로그 찍으니까 해결됨..
+  ~~~
+
+- type을 출력해야되는데... 하나씩은 되는데 배열을 출력하려니 어렵네용..
+
+~~~javascript
+//{/* {pokemon.pokemonType[0].type['name']} */}
+{pokemon.pokemonTyle.forEach(element => console.log(element)).type['name']};
+~~~
+
+~~~
+×
+TypeError: Cannot read property 'forEach' of undefined
+~~~
+
+- 출력이 아직 어렵다...
+- 여튼 출력 함
+- map 과 forEach 의 차이: map은 리턴값이 있고, forEach는 리턴값이 없음 
+
+- json viewr 
+- repl.it
+- 가운데 정렬은 해도해도 어렵다..
+- 플렉스 연습 매일 하루에 세판 이상 하깈ㅋㅋㅋㅋ
+
+> https://flexboxfroggy.com/#ko
+>
+> https://cssgridgarden.com/#ko
+>
+> https://flukeout.github.io/
+
+- mdn 투어
+  - 꼼꼼히 정독하기 해보기
+- inline style을 지양해야하는 이유
+  - html 을 읽고, 돔트리 파싱함
+  - css, cssom (css object model)
+  - 돔 + cssom  // 돔에 스타일이 있으면 다시 읽음(리플로우?) => 두번 읽게 됨
+  - 렌더링 트리 만든 후(렌더링 트리는 높이 값이 없음->레이아웃(리플로우)-> 페인팅_
+  - 자바 스크립트를 읽음
+  - css를 보내서 한번에 자바스크립트 읽고 실행할 수 있도록
+
+- 크리티컬 렌더링 path로 검색해보기
+- 리플로우와 리페인팅
+
+- 폰트 넣기
+
+  > [https://velog.io/@vnthf/%EC%9B%B9%ED%8F%B0%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94-%ED%95%98%EA%B8%B0](https://velog.io/@vnthf/웹폰트-최적화-하기)
+
+> [https://velog.io/@sunkim01/React-Material-UI-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0](https://velog.io/@sunkim01/React-Material-UI-시작하기)
+
+https://basketdeveloper.tistory.com/67
+
+~~~
+yarn add styled-reset
+~~~
+
+- GlobalStyles 컴포넌트 활용하기
