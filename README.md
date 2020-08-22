@@ -2057,3 +2057,7 @@ yarn add styled-reset
 ~~~
 
 - GlobalStyles 컴포넌트 활용하기
+- 카드에 호버 효과 주기
+- 카드 백그라운드 컬러 바꾸는 것은 쉬웠다. 동시에 포켓몬 이름과 타입을 바꾸는 것에 대해 고민했다
+> https://stackoverflow.com/questions/41007060/target-another-styled-component-on-hover
+${컴포넌트이름} 이용, 순서 중요! 
