@@ -1927,6 +1927,7 @@ embed 파라미터
   > [https://hoorooroob.tistory.com/entry/React-React-Naive-TIPS-axios-%EC%99%80-fetch-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C](https://hoorooroob.tistory.com/entry/React-React-Naive-TIPS-axios-와-fetch-어떤-것을-사용할까)
 
 - asynce await 
+  
   - fetch().then(),then().then() 이 길어지니까 대신 어웨잇으로 
 - 클론 후 내 레포로 옮기기
 
@@ -2032,6 +2033,7 @@ TypeError: Cannot read property 'forEach' of undefined
 > https://flukeout.github.io/
 
 - mdn 투어
+  
   - 꼼꼼히 정독하기 해보기
 - inline style을 지양해야하는 이유
   - html 을 읽고, 돔트리 파싱함
@@ -2045,6 +2047,8 @@ TypeError: Cannot read property 'forEach' of undefined
 - 리플로우와 리페인팅
 
 - 폰트 넣기
+- material ui? 
+- GlobalStyles
 
   > [https://velog.io/@vnthf/%EC%9B%B9%ED%8F%B0%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94-%ED%95%98%EA%B8%B0](https://velog.io/@vnthf/웹폰트-최적화-하기)
 
@@ -2057,7 +2061,57 @@ yarn add styled-reset
 ~~~
 
 - GlobalStyles 컴포넌트 활용하기
+> https://velog.io/@yhe228/react%EC%97%90%EC%84%9C-%EA%B5%AC%EA%B8%80%ED%8F%B0%ED%8A%B8-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95ㅇㅇㅉㅉ1
 - 카드에 호버 효과 주기
 - 카드 백그라운드 컬러 바꾸는 것은 쉬웠다. 동시에 포켓몬 이름과 타입을 바꾸는 것에 대해 고민했다
 > https://stackoverflow.com/questions/41007060/target-another-styled-component-on-hover
 ${컴포넌트이름} 이용, 순서 중요! 
+
+- 깃 커밋 메세지 제목, 본문으로 쓰는 방법
+https://www.youtube.com/watch?v=MOfBw3eGC08
+~~~
+git commit -m "제목" -m "본문"
+~~~
+
+- 깃 오류 해결
+~~~
+https://stackoverflow.com/questions/9729065/why-did-running-git-pull-remove-my-committed-changes
+~~~
+> warning: Pulling without specifying how to reconcile divergent branches is
+discouraged. You can squelch this message by running one of the following
+commands sometime before your next pull:
+> https://dev.to/stolleydotdev/hey-wait-git-has-a-new-complaint-5goi
+> https://stackoverflow.com/questions/62653114/how-to-deal-with-this-git-warning-pulling-without-specifying-how-to-reconcile
+
+# 200825
+
+# API에 대해 알아보자
+
+- API(Application Programming Interface)를 의미함. 단순히 말하면 interface를 의미하며 interface는 독립적인 시스템이 만나서 작동하거나 커뮤니케이션을 하는 장소를 뜻함.
+- **API는 어떠한 응용프로그램에서 데이터를 주고 받기 위한 방법을 의미함**
+- 특정 사이트에서 데이터를 공유할 경우 어떤 방식으로 정보를 요청 해야 하는 지, 어떤 데이터를 제공받을 수 있는 지에 대한 규격을 의미하기도 함(의미 확장)
+- API는 표준화된 문법 및 의사소통 방법을 만들어 애플리케이션과 데이터베이스의 상호작용이 가능하게 함
+
+# API의 장점
+
+- 프론트와 백을 명확히 분리하여 개발 시간 단축 가능
+- 특정 접근 권한을 주고 API에 접근할 수 있도록 key와 문서를 제공함으로써 개발자는 기업마다 새로운 데이터를 제공하는 새로운 환경을 구축할 필요 없이 API를 잘 설계하면됨
+- 서비스 개발 시간 단축 가능
+- 서비스의 개인화가 가능해 집니다.
+- 개발자가 복잡한 기능을 일일이 프로그래밍하지 않더라도 API를 통해 기능을 요구하고, 그 결과 값만을 활용 할 수 있는 이점이 있기 때문에 프로그래머들은 API만을 조합하여 원하는 프로그램을 제작할수있습니다.
+- 웹 서비스의 개방지향적인 성격을 활용하여 API를 조합하여 원하는 프로그램을 제작하듯이, 오픈API를 조합하여 새로운 서비스를 개발하는 것 이 가능해 졌습니다
+
+# 동작원리
+
+- API의 동작은 사용하는 입장에서는 요청(request)하고, 결과값을 받아 해석(parse)하는 단계로 구성
+- 요청방법은 REST, SOAP, XML-RPC 등의 형식이 있으며 REST 방식이 간단하고 사용하기 편리하여 많은 API 제공업체들이 REST 방식을 지원하고 있습니다
+
+- 참고
+
+    [https://www.shutterstock.com/ko/blog/what-is-an-api/](https://www.shutterstock.com/ko/blog/what-is-an-api/)
+
+    [https://www.redhat.com/ko/topics/api/what-are-application-programming-interfaces](https://www.redhat.com/ko/topics/api/what-are-application-programming-interfaces)
+
+    [http://www.must.or.kr/ko/must/research/openapi/](http://www.must.or.kr/ko/must/research/openapi/)
+
+    [](https://velog.io/@johnque/React-API-%EC%97%B0%EB%8F%99-v9k692txn5)
