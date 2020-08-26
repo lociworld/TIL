@@ -2115,3 +2115,9 @@ commands sometime before your next pull:
     [http://www.must.or.kr/ko/must/research/openapi/](http://www.must.or.kr/ko/must/research/openapi/)
 
     [](https://velog.io/@johnque/React-API-%EC%97%B0%EB%8F%99-v9k692txn5)
+
+# 200826
+
+- usememo와 useCallback 차이점
+  -  useMemo는 결과값을 재사용하는 반면에 useCallback은 함수를 새로 만들지 않고 재사용하고 싶을 경우 사용한다
+
