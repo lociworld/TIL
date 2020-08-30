@@ -2121,3 +2121,29 @@ commands sometime before your next pull:
 - usememo와 useCallback 차이점
   -  useMemo는 결과값을 재사용하는 반면에 useCallback은 함수를 새로 만들지 않고 재사용하고 싶을 경우 사용한다
 
+# 200830
+
+```jsx
+const memoizedCallback = useCallback(
+  () => {
+    doSomething(a, b);
+  },
+  [a, b],
+);
+```
+
+메모이제이션된 콜백을 반환합니다.
+
+useCallback(fn, deps)은 useMemo(() => fn, deps)와 같습니다.
+
+# useMemo
+
+```jsx
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```
+
+메모이제이션된 값을 반환합니다.
+
+“생성(create)” 함수와 그것의 의존성 값의 배열을 전달하세요. useMemo는 의존성이 변경되었을 때에만 메모이제이션된 값만 다시 계산 할 것입니다. 이 최적화는 모든 렌더링 시의 고비용 계산을 방지하게 해 줍니다.
+
+useMemo는 결과값을 재사용하는 반면에 useCallback은 함수를 새로 만들지 않고 재사용하고 싶을 경우 사용하게 됩니다.
