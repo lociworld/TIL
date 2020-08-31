@@ -2147,3 +2147,83 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 “생성(create)” 함수와 그것의 의존성 값의 배열을 전달하세요. useMemo는 의존성이 변경되었을 때에만 메모이제이션된 값만 다시 계산 할 것입니다. 이 최적화는 모든 렌더링 시의 고비용 계산을 방지하게 해 줍니다.
 
 useMemo는 결과값을 재사용하는 반면에 useCallback은 함수를 새로 만들지 않고 재사용하고 싶을 경우 사용하게 됩니다.
+
+## 200831
+
+ 타입 스크립트
+
+- 변수 값에 데이터 타입 지정 가능
+  - 디버깅이 쉽다 
+
+~~~javascript
+//javascript
+function add (a,b) {
+  return a + b;
+}
+console.log (add('3','5'))
+~~~
+
+~~~typescript
+//typescript
+function add (a: number,b:number) {
+  return a + b;
+}
+console.log (add('3','5'))
+~~~
+
+- 객체지향적
+
+- 컴파일 타임 오류를 잡을 수 있다
+
+  - 타입스크립트로 작성된 코드는 자바스크립트로 컴파일 되어야 브라우저가 이해할 수 있음
+  - 컴파일이란? 어떤 언어의 코드를 다른 언어로 바꿔주는 변환 과정
+  - 타입스크립트는 프로그래밍 언어인 동시에 타입스크립트를 자바스크립트로 바꿔주는 컴파일러이다.
+
+- 익스텐션
+
+  - 프리티어
+  - eslint
+  - path intellisense
+  - bracket pair colo
+  - material icon theme
+
+- 타입스크립트 설치
+
+  - 웹사이트 - 인스톨 로컬
+  - npm 이란? node package manaeger
+    - 여기에서는 타입스크립트를 설치하기 위해 사용되는 도구를 뜻함
+    - npm은 node js의 한 부분이다. 따라서 npm을 사용하기 위해 node js를 설치해 주어야 한다. node js는 브라우저밖에서 자바스크립트를 실행할 수 있는 런타임환경이라고 생각하면 됨 
+
+  ~~~bash
+  npm install -g typescript
+  #맥 
+  sudo npm install -g typescript
+  ~~~
+
+  - 타입스크립트 파일 만들기
+    - app.ts 파일을 만든다
+
+  ~~~typescript
+  app.ts
+  ~~~
+
+  - 타입 추론
+
+    - static typing 정적 타이핑기능을 자바스크립트에 제공함
+      - 타입을 선언하고, 선언된 타입에 맞는 값만이 할당, 반환되어야 한다는 뜻
+    - 예시
+
+    ~~~ typescript
+    app.ts
+    
+    let a = 5; //변수 선언
+    ~~~
+
+    ~~~javascript
+    app.js
+    
+    let a = 10;
+    a = 'hello'
+    ~~~
+
+    
