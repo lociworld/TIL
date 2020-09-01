@@ -2213,17 +2213,41 @@ console.log (add('3','5'))
       - 타입을 선언하고, 선언된 타입에 맞는 값만이 할당, 반환되어야 한다는 뜻
     - 예시
 
-    ~~~ typescript
+    ~~~typescript
     app.ts
     
     let a = 5; //변수 선언
+    a = "hello";//타입추론으로 인해 a 빨간 줄, 에레메시지
+    a = 10 ;// 에러메시지 안뜸. 타입표기가 없는 경우 타입을 추론함. 변수 a타입은 숫자일 것임을 추론  
     ~~~
 
     ~~~javascript
     app.js
     
     let a = 10;
-    a = 'hello'
+    a = 'hello' //변수값 재할당 가능
+    ~~~
+
+    ~~~ts
+    let student = {
+    name: 'jake',
+    course: 'Getting Started with TypeScript',
+    codingIQ: 80,
+    code: function() {
+      console.log("brain is working hard")
+    }
+    }
+    
+    student.name = 10; //student.name에 빨간 줄
+    //Type '10' is not assignable to type 'string'
+    
+    //function 에 마우스를 댔을 때: function calcultateCodingIQ(lostPoints: any): number
+    //반환 값이 number라는 것을 보여줌. 이는 리턴값 100-lostPoints를 보고 추론한 것 
+    function calculateCodingIQ(lostPoints) {
+      return 100 - lostPoints;
+    }
     ~~~
 
     
+
+![image-20200901143829262](image-20200901143829262.png)
